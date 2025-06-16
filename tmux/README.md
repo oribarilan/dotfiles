@@ -1,5 +1,12 @@
 # tmux
 
+## background
+
+1. episode 3: https://www.youtube.com/watch?v=_YaI2vDbk0o&t=100s&ab_channel=typecraft
+2.
+
+## setup
+
 In order to use these configurations for tmux:
 
 1. Install tmux from https://www.github.com/tmux/tmux
