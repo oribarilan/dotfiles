@@ -2,7 +2,7 @@
 
 ## background
 
-1. episode 3: https://www.youtube.com/watch?v=_YaI2vDbk0o&t=100s&ab_channel=typecraft
+1. typecraft tmux tutorial: https://www.youtube.com/playlist?list=PLsz00TDipIfdrJDjpULKY7mQlIFi4HjdR
 2.
 
 ## setup
