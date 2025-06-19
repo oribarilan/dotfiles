@@ -2,6 +2,8 @@
 
 ## Key Features
 
+### tmux
+
 - <C-h/j/k/l> pane navigation in tmux & nvim
 - <C-a> leader for tmux
 - <C-a>F for tmux fzf (session management)
@@ -10,6 +12,7 @@
 - <C-a>x kill pane
 - <C-a>z zoom pane (default)
 - <C-a>h/j/k/l resize current pane
+- <C-a>Escpae - enter copy mode, q to exit, v to start selection, y to copy (vi mode enabled)
 
 ## todo
 
@@ -28,3 +31,5 @@
 
 - [ ] `n .` and then opening a project with the dashboard, should also make telescope search this
       dir (e.g., cd into that dir?)
+- [ ] consider telescope-file-browser as alternative to mini.files:
+      https://github.com/nvim-telescope/telescope-file-browser.nvim
