@@ -26,6 +26,7 @@
 
 - [x] easier keymap for creating and deleting splits
 - [ ] session management and navigation
+- [ ] omerxx/tmux-sessionx
 
 ### vim
 
@@ -33,3 +34,5 @@
       dir (e.g., cd into that dir?)
 - [ ] consider telescope-file-browser as alternative to mini.files:
       https://github.com/nvim-telescope/telescope-file-browser.nvim
+- [ ] jumplist to navigate between files
+- [ ] obsidian.nvim + github integration to a private repo
