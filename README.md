@@ -11,8 +11,12 @@
 - <C-a>\ split vertically
 - <C-a>x kill pane
 - <C-a>z zoom pane (default)
-- <C-a>h/j/k/l resize current pane
+- <C-a>h/j/k/l resize current pane (repeatable)
 - <C-a>Escpae - enter copy mode, q to exit, v to start selection, y to copy (vi mode enabled)
+
+### nvim
+
+- <space> leader for nvim
 
 ## todo
 
@@ -36,3 +40,6 @@
       https://github.com/nvim-telescope/telescope-file-browser.nvim
 - [ ] jumplist to navigate between files
 - [ ] obsidian.nvim + github integration to a private repo
+- [ ] flash.nvim for navigation
+- [ ] surround.nvim for surrounding text objects
+- [ ] quicklist (understand more deeply and use)?
