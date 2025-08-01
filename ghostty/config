@@ -1,0 +1,13 @@
+# in ~/.config/ghostty/config add:
+# config-file = "/absolute/path/to/this/file"
+
+theme = catppuccin-mocha
+
+keybind = cmd+/=new_split:right
+keybind = cmd+\=new_split:down
+
+confirm-close-surface = false
+
+macos-option-as-alt = true
+
+font-family = "Fira Code Mono"

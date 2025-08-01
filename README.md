@@ -18,6 +18,14 @@
 
 - <space> leader for nvim
 
+### ghostty
+
+- setup for macost (option as alt)
+- theme catppuccin
+- font fira code
+- cmd + 0 - reset zoom
+- cmd + =/- - zoom in/out
+
 ## todo
 
 ### general
@@ -43,3 +51,6 @@
 - [ ] flash.nvim for navigation
 - [ ] surround.nvim for surrounding text objects
 - [ ] quicklist (understand more deeply and use)?
+
+
+
