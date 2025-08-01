@@ -1,8 +1,6 @@
 # dotfiles
 
-## Key Features
-
-### tmux
+## tmux
 
 - <C-h/j/k/l> pane navigation in tmux & nvim
 - <C-a> leader for tmux
@@ -14,23 +12,59 @@
 - <C-a>h/j/k/l resize current pane (repeatable)
 - <C-a>Escpae - enter copy mode, q to exit, v to start selection, y to copy (vi mode enabled)
 
-### nvim
+## nvim
 
 - <space> leader for nvim
 
-### ghostty
+## ghostty
 
+### Installation
+in your ghostty config file (usually `~/.config/ghostty/config`), have only the following line:
+```ini
+config-file = "/absolute/path/to/this/file"
+```
+
+### Features
 - setup for macost (option as alt)
 - theme catppuccin
 - font fira code
 - cmd + 0 - reset zoom
 - cmd + =/- - zoom in/out
 
-## todo
+## zsh
+
+### Installation
+- in your `~/.zshrc` file, have only the following line:
+
+```zsh
+source `~/path/to/dotfiles/zsh/oribi.zsh`
+```
+
+- run `zsh setup.zsh
+
+### Features
+
+- Fuzzy search on completions (press `Tab` to search)
+- Ctrl-r - Search history
+- Ctrl-t - Search files
+- z - fuzzy jump to directory
+- zi - Search and jump to directory
+
+- fc - fix command (edit, wq, auto run)
+
+- direnv - load .envrc files automatically in directories
+
+## Non-functionals
+
+- Super fast loading (lazy loading what's possible)
+- Lightweight prompt theme (with git support)
+- Auto-suggestions
+- Syntax hightlighting
 
 ### general
 
-- [ ] move zsh here
+- [x] move zsh here
+- [x] move ghostty here
 - [ ] move nvim here
 - [ ] move docs from individual repos here
 
