@@ -14,8 +14,31 @@
 
 ## nvim
 
+### Installation
+
+- create a symlink between default nvim config (e.g., `~/.config/nvim`) and this repo's nvim config:
+```bash
+ln -s ~/path/to/dotfiles/nvim ~/.config/nvim
+```
+
+Note: we are using symlink (instead of bootstrapping like other tools here) for nvim specifically because of tools like lazy.nvim that will create a lazy-lock.json file in the nvim config directory.
+
+### Core Features
+
 - <space> leader for nvim
 - autoread
+
+#### Language Support (LSPs, formatters, linters)
+Using the "old" nvim-lspconfig lsp setup
+
+- python - pyright, ruff
+- dotnet - roslyn
+
+- lua - lua_ls, stylua
+- json - jsonls, jsonlint
+- yaml - yamlls, yamllint
+- markdown - markdownlint
+
 
 
 ## ghostty
@@ -67,7 +90,7 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 - [x] move zsh here
 - [x] move ghostty here
-- [ ] move nvim here
+- [x] move nvim here
 - [ ] move docs from individual repos here
 
 ### tmux
