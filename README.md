@@ -15,6 +15,8 @@
 ## nvim
 
 - <space> leader for nvim
+- autoread
+
 
 ## ghostty
 
@@ -24,7 +26,7 @@ in your ghostty config file (usually `~/.config/ghostty/config`), have only the 
 config-file = "/absolute/path/to/this/file"
 ```
 
-### Features
+### Core Features
 - setup for macost (option as alt)
 - theme catppuccin
 - font fira code
@@ -42,12 +44,12 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 - run `zsh setup.zsh
 
-### Features
+### Core Features
 
 - Fuzzy search on completions (press `Tab` to search)
 - Ctrl-r - Search history
 - Ctrl-t - Search files
-- z - fuzzy jump to directory
+- z - fuzzy jump to directory using zoxide
 - zi - Search and jump to directory
 
 - fc - fix command (edit, wq, auto run)
