@@ -110,6 +110,7 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 - [ ] flash.nvim for navigation
 - [ ] surround.nvim for surrounding text objects
 - [ ] quicklist (understand more deeply and use)?
+- [ ] vim tips from https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
 
 
 
