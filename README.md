@@ -2,6 +2,13 @@
 
 ## tmux
 
+### Installation
+
+1. Install tmux
+2. Install tmux package manager (`tpm`) from https://github.com/tmux-plugins/tpm
+
+### Core Features
+
 - <C-h/j/k/l> pane navigation in tmux & nvim
 - <C-a> leader for tmux
 - <C-a>F for tmux fzf (session management)
@@ -11,6 +18,12 @@
 - <C-a>z zoom pane (default)
 - <C-a>h/j/k/l resize current pane (repeatable)
 - <C-a>Escpae - enter copy mode, q to exit, v to start selection, y to copy (vi mode enabled)
+
+### TODOs
+
+- [x] easier keymap for creating and deleting splits
+- [ ] session management and navigation
+- [ ] omerxx/tmux-sessionx
 
 ## nvim
 
@@ -39,7 +52,18 @@ Using the "old" nvim-lspconfig lsp setup
 - yaml - yamlls, yamllint
 - markdown - markdownlint
 
+### TODOs
 
+- [ ] `n .` and then opening a project with the dashboard, should also make telescope search this
+      dir (e.g., cd into that dir?)
+- [ ] consider telescope-file-browser as alternative to mini.files:
+      https://github.com/nvim-telescope/telescope-file-browser.nvim
+- [ ] jumplist to navigate between files
+- [ ] obsidian.nvim + github integration to a private repo
+- [ ] flash.nvim for navigation
+- [ ] surround.nvim for surrounding text objects
+- [ ] quicklist (understand more deeply and use)?
+- [ ] vim tips from https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
 
 ## ghostty
 
@@ -79,38 +103,10 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 - direnv - load .envrc files automatically in directories
 
-## Non-functionals
+### Non-functionals
 
 - Super fast loading (lazy loading what's possible)
 - Lightweight prompt theme (with git support)
 - Auto-suggestions
 - Syntax hightlighting
-
-### general
-
-- [x] move zsh here
-- [x] move ghostty here
-- [x] move nvim here
-- [ ] move docs from individual repos here
-
-### tmux
-
-- [x] easier keymap for creating and deleting splits
-- [ ] session management and navigation
-- [ ] omerxx/tmux-sessionx
-
-### vim
-
-- [ ] `n .` and then opening a project with the dashboard, should also make telescope search this
-      dir (e.g., cd into that dir?)
-- [ ] consider telescope-file-browser as alternative to mini.files:
-      https://github.com/nvim-telescope/telescope-file-browser.nvim
-- [ ] jumplist to navigate between files
-- [ ] obsidian.nvim + github integration to a private repo
-- [ ] flash.nvim for navigation
-- [ ] surround.nvim for surrounding text objects
-- [ ] quicklist (understand more deeply and use)?
-- [ ] vim tips from https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
-
-
 
