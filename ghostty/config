@@ -1,6 +1,8 @@
 # in ~/.config/ghostty/config add:
 # config-file = "/absolute/path/to/this/file"
 
+# reload config with cmd + shift + ,
+
 theme = catppuccin-mocha
 
 keybind = cmd+/=new_split:right
@@ -11,3 +13,7 @@ confirm-close-surface = false
 macos-option-as-alt = true
 
 font-family = "Fira Code Mono"
+
+# invert fg/bg of the cell under the cursor
+cursor-color = #5fd7ff
+cursor-text  = #000000
