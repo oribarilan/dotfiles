@@ -5,10 +5,10 @@ return {
   opts = {
     style = 'night',
     cache = false, -- avoid stale results while iterating
-    styles = { comments = { italic = false } },
+    -- styles = { comments = { italic = true } },
     on_highlights = function(hl, c)
       local subtle = '#8c98b3'  -- subtle color for comments and line numbers
-      hl.Comment      = { fg = subtle, italic = false }
+      hl.Comment      = { fg = subtle, italic = true }
       hl.LineNr       = { fg = subtle }
       hl.LineNrAbove  = { fg = subtle }
       hl.LineNrBelow  = { fg = subtle }
@@ -16,6 +16,6 @@ return {
     end,
   },
   init = function()
-    vim.cmd.colorscheme('tokyonight-night')
+    vim.cmd.colorscheme('tokyonight')
   end,
 }
