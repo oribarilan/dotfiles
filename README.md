@@ -41,6 +41,15 @@ Note: we are using symlink (instead of bootstrapping like other tools here) for 
 - <space> leader for nvim
 - autoread
 
+- Copilot:
+    - italic with distinct subtle color
+    - using option key for managing suggestions:
+    - opt-y : accept suggestion
+    - opt-l : accept word
+    - opt-n : dismiss suggestion
+    - opt-j : next suggestion
+    - opt-k : previous suggestion
+
 #### Language Support (LSPs, formatters, linters)
 Using the "old" nvim-lspconfig lsp setup
 
