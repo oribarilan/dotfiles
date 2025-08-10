@@ -12,6 +12,9 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Enable 24-bit colors (truecolor) for themes
+vim.o.termguicolors = true
+
 -- [[ Setting options ]]
 -- See `:help vim.o` and `:help option-list`
 

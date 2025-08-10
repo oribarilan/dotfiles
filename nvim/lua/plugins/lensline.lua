@@ -13,12 +13,13 @@ return {
           name = 'last_author',
           enabled = true,
         },
-        -- {
-        --   name = 'complexity',
-        --   enabled = true,
-        -- },
+        {
+          name = 'complexity',
+          min_level = 'S',
+          enabled = true,
+        }
       },
-      debug_mode = true,
+      debug_mode = false,
     }
   end,
 }
