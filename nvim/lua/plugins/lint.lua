@@ -83,7 +83,8 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        python = { 'ruff' },
+        -- Removed ruff from here since it's handled by LSP
+        -- python = { 'ruff' },
       }
 
       vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {

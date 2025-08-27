@@ -279,6 +279,16 @@ return {
             },
           },
         },
+
+        -- Ruff LSP for Python linting, formatting, and import organization
+        ruff = {
+          init_options = {
+            settings = {
+              -- Ruff configuration can be done via pyproject.toml or here
+              args = {},
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -300,6 +310,7 @@ return {
         'markdownlint', -- Markdown linter
         'yamllint', -- YAML linter
         'jsonlint', -- JSON linter
+        'ruff', -- Python linter/formatter via LSP
         -- Note: roslyn is managed by roslyn.nvim plugin, not mason-lspconfig
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
