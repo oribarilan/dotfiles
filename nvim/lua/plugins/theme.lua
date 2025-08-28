@@ -15,7 +15,7 @@ return {
         hl.LineNrBelow = { fg = subtle_color }
 
         -- Make Visual mode stand out more
-        hl.Visual = { bg = '#445b9b' } -- You can tweak this hex color
+        hl.Visual = { bg = '#445b9b' }
       end,
       styles = {
         comments = { italic = false }, -- copilot ghost text will use italic, to diffrentiate it from comments
