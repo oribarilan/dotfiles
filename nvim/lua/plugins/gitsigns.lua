@@ -47,7 +47,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
-      current_line_blame = true, -- Enable blame by default
+      current_line_blame = false, -- Enable blame by default
       current_line_blame_opts = {
         delay = 300,
       },
