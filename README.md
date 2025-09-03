@@ -30,28 +30,32 @@
 ### Installation
 
 - create a symlink between default nvim config (e.g., `~/.config/nvim`) and this repo's nvim config:
+
 ```bash
 ln -s ~/path/to/dotfiles/nvim ~/.config/nvim
 ```
 
-Note: we are using symlink (instead of bootstrapping like other tools here) for nvim specifically because of tools like lazy.nvim that will create a lazy-lock.json file in the nvim config directory.
+Note: we are using symlink (instead of bootstrapping like other tools here) for nvim specifically
+because of tools like lazy.nvim that will create a lazy-lock.json file in the nvim config directory.
 
 ### Core Features
 
 #### General
+
 - <space> leader for nvim
 - autoread
 
 - Copilot:
-    - italic with distinct subtle color
-    - using option key for managing suggestions:
-    - opt-y : accept suggestion
-    - opt-l : accept word
-    - opt-n : dismiss suggestion
-    - opt-j : next suggestion
-    - opt-k : previous suggestion
+  - italic with distinct subtle color
+  - using option key for managing suggestions:
+  - opt-y : accept suggestion
+  - opt-l : accept word
+  - opt-n : dismiss suggestion
+  - opt-j : next suggestion
+  - opt-k : previous suggestion
 
 #### Language Support (LSPs, formatters, linters)
+
 Using the "old" nvim-lspconfig lsp setup
 
 - python - pyright, ruff
@@ -62,9 +66,13 @@ Using the "old" nvim-lspconfig lsp setup
 - yaml - yamlls, yamllint
 - markdown - markdownlint
 
-#### Editing
+#### Navigation
 
+- <leader>s - telescope find
 - <C-j/k> - for up/down in pickers (telescope/cmp)
+
+#### Completions
+
 - <M-j/k> - switch between copilot suggestions
 - <M-l> - accept copilot next word
 - <M-y/n> - accept/dismiss copilot suggestion
@@ -87,12 +95,15 @@ Using the "old" nvim-lspconfig lsp setup
 ## ghostty
 
 ### Installation
+
 in your ghostty config file (usually `~/.config/ghostty/config`), have only the following line:
+
 ```ini
 config-file = "/absolute/path/to/this/file"
 ```
 
 ### Core Features
+
 - setup for macost (option as alt)
 - theme catppuccin
 - font fira code
@@ -102,6 +113,7 @@ config-file = "/absolute/path/to/this/file"
 ## zsh
 
 ### Installation
+
 - in your `~/.zshrc` file, have only the following line:
 
 ```zsh
@@ -128,4 +140,3 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 - Lightweight prompt theme (with git support)
 - Auto-suggestions
 - Syntax hightlighting
-
