@@ -38,6 +38,7 @@ Note: we are using symlink (instead of bootstrapping like other tools here) for 
 
 ### Core Features
 
+#### General
 - <space> leader for nvim
 - autoread
 
@@ -60,6 +61,15 @@ Using the "old" nvim-lspconfig lsp setup
 - json - jsonls, jsonlint
 - yaml - yamlls, yamllint
 - markdown - markdownlint
+
+#### Editing
+
+- <C-j/k> - for up/down in pickers (telescope/cmp)
+- <M-j/k> - switch between copilot suggestions
+- <M-l> - accept copilot next word
+- <M-y/n> - accept/dismiss copilot suggestion
+- K - show LSP hover (click again for focus)
+- <leader>k - show diagnostics hover (click again for focus)
 
 ### TODOs
 
