@@ -1,13 +1,18 @@
 # dotfiles
 
-## tmux
+<details>
+<summary>## tmux</summary>
 
-### Installation
+<details>
+<summary>### Installation</summary>
 
 1. Install tmux
 2. Install tmux package manager (`tpm`) from https://github.com/tmux-plugins/tpm
 
-### Core Features
+</details>
+
+<details>
+<summary>### Core Features</summary>
 
 - <C-h/j/k/l> pane navigation in tmux & nvim
 - <C-a> leader for tmux
@@ -19,15 +24,24 @@
 - <C-a>h/j/k/l resize current pane (repeatable)
 - <C-a>Escpae - enter copy mode, q to exit, v to start selection, y to copy (vi mode enabled)
 
-### TODOs
+</details>
+
+<details>
+<summary>### TODOs</summary>
 
 - [x] easier keymap for creating and deleting splits
 - [ ] session management and navigation
 - [ ] omerxx/tmux-sessionx
 
-## nvim
+</details>
 
-### Installation
+</details>
+
+<details>
+<summary>## nvim</summary>
+
+<details>
+<summary>### Installation</summary>
 
 - create a symlink between default nvim config (e.g., `~/.config/nvim`) and this repo's nvim config:
 
@@ -38,9 +52,13 @@ ln -s ~/path/to/dotfiles/nvim ~/.config/nvim
 Note: we are using symlink (instead of bootstrapping like other tools here) for nvim specifically
 because of tools like lazy.nvim that will create a lazy-lock.json file in the nvim config directory.
 
-### Core Features
+</details>
 
-#### General
+<details>
+<summary>### Core Features</summary>
+
+<details>
+<summary>#### General</summary>
 
 - <space> leader for nvim
 - autoread
@@ -54,7 +72,10 @@ because of tools like lazy.nvim that will create a lazy-lock.json file in the nv
   - opt-j : next suggestion
   - opt-k : previous suggestion
 
-#### Language Support (LSPs, formatters, linters)
+</details>
+
+<details>
+<summary>#### Language Support (LSPs, formatters, linters)</summary>
 
 Using the "old" nvim-lspconfig lsp setup
 
@@ -66,7 +87,10 @@ Using the "old" nvim-lspconfig lsp setup
 - yaml - yamlls, yamllint
 - markdown - markdownlint
 
-#### Navigation & Search
+</details>
+
+<details>
+<summary>#### Navigation & Search</summary>
 
 - <leader>e/E - toggle file explorer / open current file in explorer (mini.files). edit as buffer, use `=` to save changes
 - <leader>s - telescope find
@@ -74,7 +98,10 @@ Using the "old" nvim-lspconfig lsp setup
 - s - search using flash
 - S - treesitter highlight search using flash
 
-#### Completions
+</details>
+
+<details>
+<summary>#### Completions</summary>
 
 - <M-j/k> - switch between copilot suggestions
 - <M-l> - accept copilot next word
@@ -82,10 +109,18 @@ Using the "old" nvim-lspconfig lsp setup
 - K - show LSP hover (click again for focus)
 - <leader>k - show diagnostics hover (click again for focus)
 
-#### Search
+</details>
+
+<details>
+<summary>#### Search</summary>
 
 
-### TODOs
+</details>
+
+</details>
+
+<details>
+<summary>### TODOs</summary>
 
 - [ ] `n .` and then opening a project with the dashboard, should also make telescope search this
       dir (e.g., cd into that dir?)
@@ -98,9 +133,15 @@ Using the "old" nvim-lspconfig lsp setup
 - [ ] quicklist (understand more deeply and use)?
 - [ ] vim tips from https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
 
-## ghostty
+</details>
 
-### Installation
+</details>
+
+<details>
+<summary>## ghostty</summary>
+
+<details>
+<summary>### Installation</summary>
 
 in your ghostty config file (usually `~/.config/ghostty/config`), have only the following line:
 
@@ -108,7 +149,10 @@ in your ghostty config file (usually `~/.config/ghostty/config`), have only the 
 config-file = "/absolute/path/to/this/file"
 ```
 
-### Core Features
+</details>
+
+<details>
+<summary>### Core Features</summary>
 
 - setup for macost (option as alt)
 - theme catppuccin
@@ -116,9 +160,15 @@ config-file = "/absolute/path/to/this/file"
 - cmd + 0 - reset zoom
 - cmd + =/- - zoom in/out
 
-## zsh
+</details>
 
-### Installation
+</details>
+
+<details>
+<summary>## zsh</summary>
+
+<details>
+<summary>### Installation</summary>
 
 - in your `~/.zshrc` file, have only the following line:
 
@@ -128,7 +178,10 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 - run `zsh setup.zsh
 
-### Core Features
+</details>
+
+<details>
+<summary>### Core Features</summary>
 
 - Fuzzy search on completions (press `Tab` to search)
 - Ctrl-r - Search history
@@ -140,9 +193,16 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 - direnv - load .envrc files automatically in directories
 
-### Non-functionals
+</details>
+
+<details>
+<summary>### Non-functionals</summary>
 
 - Super fast loading (lazy loading what's possible)
 - Lightweight prompt theme (with git support)
 - Auto-suggestions
 - Syntax hightlighting
+
+</details>
+
+</details>
