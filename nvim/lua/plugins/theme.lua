@@ -5,7 +5,7 @@ return {
   opts = {
     style = 'night',
     cache = false, -- avoid stale results while iterating
-    -- styles = { comments = { italic = true } },
+    -- copilot ghost text will use italic, to diffrentiate it from comments
     on_highlights = function(hl, c)
       local subtle = '#8c98b3'  -- subtle color for comments and line numbers
       hl.Comment      = { fg = subtle, italic = false }
@@ -25,6 +25,6 @@ return {
     end,
   },
   init = function()
-    vim.cmd.colorscheme('tokyonight')
+    vim.cmd.colorscheme('tokyonight-night')
   end,
 }
