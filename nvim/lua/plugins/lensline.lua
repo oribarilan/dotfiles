@@ -1,25 +1,24 @@
 return {
+
+  -- dev
   dir = '~/repos/personal/lensline.nvim',
   dev = true, -- Enables development mode
-  event = 'BufReadPre',
+  event = 'LspAttach',
   config = function()
     require('lensline').setup {
-      providers = { -- Array format: order determines display sequence
-        {
-          name = 'ref_count',
-          enabled = true,
-        },
-        {
-          name = 'last_author',
-          enabled = true,
-        },
-        {
-          name = 'complexity',
-          min_level = 'S',
-          enabled = true,
-        }
+      style = {
+        placement = 'inline',
+        prefix = '',
       },
-      debug_mode = false,
+      debug_mode = true,
     }
   end,
+
+  -- prod
+  -- 'oribarilan/lensline.nvim',
+  -- tag = '1.0.0', -- or: branch = 'release/1.x' for latest non-breaking updates
+  -- event = 'LspAttach',
+  -- config = function()
+  --   require("lensline").setup()
+  -- end,
 }
