@@ -22,6 +22,12 @@ return {
       hl['@lsp.mod.documentation'] = { link = 'Docstring' }
       hl['@lsp.typemod.comment.documentation'] = { link = 'Docstring' }
       hl['@lsp.typemod.string.documentation']  = { link = 'Docstring' }
+
+      -- Flash.nvim – softer, better contrast
+      hl.FlashBackdrop = { link = 'Comment' }                          -- dim background
+      hl.FlashMatch    = { bg = c.bg_highlight, fg = c.fg, bold = true }
+      hl.FlashCurrent  = { bg = c.blue,         fg = c.fg, bold = true }
+      hl.FlashLabel    = { bg = c.yellow,       fg = c.bg, bold = true }
     end,
   },
   init = function()

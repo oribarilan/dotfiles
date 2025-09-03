@@ -66,10 +66,13 @@ Using the "old" nvim-lspconfig lsp setup
 - yaml - yamlls, yamllint
 - markdown - markdownlint
 
-#### Navigation
+#### Navigation & Search
 
+- <leader>e/E - toggle file explorer / open current file in explorer (mini.files). edit as buffer, use `=` to save changes
 - <leader>s - telescope find
 - <C-j/k> - for up/down in pickers (telescope/cmp)
+- s - search using flash
+- S - treesitter highlight search using flash
 
 #### Completions
 
@@ -78,6 +81,9 @@ Using the "old" nvim-lspconfig lsp setup
 - <M-y/n> - accept/dismiss copilot suggestion
 - K - show LSP hover (click again for focus)
 - <leader>k - show diagnostics hover (click again for focus)
+
+#### Search
+
 
 ### TODOs
 
