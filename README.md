@@ -1,14 +1,9 @@
 # dotfiles
 
-<details>
-<summary>tmux</summary>
-
 ## tmux
 
 <details>
 <summary>Installation</summary>
-
-### Installation
 
 1. Install tmux
 2. Install tmux package manager (`tpm`) from https://github.com/tmux-plugins/tpm
@@ -17,8 +12,6 @@
 
 <details>
 <summary>Core Features</summary>
-
-### Core Features
 
 - <C-h/j/k/l> pane navigation in tmux & nvim
 - <C-a> leader for tmux
@@ -35,25 +28,16 @@
 <details>
 <summary>TODOs</summary>
 
-### TODOs
-
 - [x] easier keymap for creating and deleting splits
 - [ ] session management and navigation
 - [ ] omerxx/tmux-sessionx
 
 </details>
 
-</details>
-
-<details>
-<summary>nvim</summary>
-
 ## nvim
 
 <details>
 <summary>Installation</summary>
-
-### Installation
 
 - create a symlink between default nvim config (e.g., `~/.config/nvim`) and this repo's nvim config:
 
@@ -69,12 +53,8 @@ because of tools like lazy.nvim that will create a lazy-lock.json file in the nv
 <details>
 <summary>Core Features</summary>
 
-### Core Features
-
 <details>
 <summary>General</summary>
-
-#### General
 
 - <space> leader for nvim
 - autoread
@@ -93,8 +73,6 @@ because of tools like lazy.nvim that will create a lazy-lock.json file in the nv
 <details>
 <summary>Language Support (LSPs, formatters, linters)</summary>
 
-#### Language Support (LSPs, formatters, linters)
-
 Using the "old" nvim-lspconfig lsp setup
 
 - python - pyright, ruff
@@ -110,8 +88,6 @@ Using the "old" nvim-lspconfig lsp setup
 <details>
 <summary>Navigation & Search</summary>
 
-#### Navigation & Search
-
 - <leader>e/E - toggle file explorer / open current file in explorer (mini.files). edit as buffer, use `=` to save changes
 - <leader>s - telescope find
 - <C-j/k> - for up/down in pickers (telescope/cmp)
@@ -122,8 +98,6 @@ Using the "old" nvim-lspconfig lsp setup
 
 <details>
 <summary>Completions</summary>
-
-#### Completions
 
 - <M-j/k> - switch between copilot suggestions
 - <M-l> - accept copilot next word
@@ -136,8 +110,6 @@ Using the "old" nvim-lspconfig lsp setup
 <details>
 <summary>Search</summary>
 
-#### Search
-
 
 </details>
 
@@ -145,8 +117,6 @@ Using the "old" nvim-lspconfig lsp setup
 
 <details>
 <summary>TODOs</summary>
-
-### TODOs
 
 - [ ] `n .` and then opening a project with the dashboard, should also make telescope search this
       dir (e.g., cd into that dir?)
@@ -161,17 +131,10 @@ Using the "old" nvim-lspconfig lsp setup
 
 </details>
 
-</details>
-
-<details>
-<summary>ghostty</summary>
-
 ## ghostty
 
 <details>
 <summary>Installation</summary>
-
-### Installation
 
 in your ghostty config file (usually `~/.config/ghostty/config`), have only the following line:
 
@@ -184,8 +147,6 @@ config-file = "/absolute/path/to/this/file"
 <details>
 <summary>Core Features</summary>
 
-### Core Features
-
 - setup for macost (option as alt)
 - theme catppuccin
 - font fira code
@@ -194,17 +155,10 @@ config-file = "/absolute/path/to/this/file"
 
 </details>
 
-</details>
-
-<details>
-<summary>zsh</summary>
-
 ## zsh
 
 <details>
 <summary>Installation</summary>
-
-### Installation
 
 - in your `~/.zshrc` file, have only the following line:
 
@@ -218,8 +172,6 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 <details>
 <summary>Core Features</summary>
-
-### Core Features
 
 - Fuzzy search on completions (press `Tab` to search)
 - Ctrl-r - Search history
@@ -236,13 +188,9 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 <details>
 <summary>Non-functionals</summary>
 
-### Non-functionals
-
 - Super fast loading (lazy loading what's possible)
 - Lightweight prompt theme (with git support)
 - Auto-suggestions
 - Syntax hightlighting
-
-</details>
 
 </details>
