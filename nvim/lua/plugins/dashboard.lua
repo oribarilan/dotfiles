@@ -63,35 +63,27 @@ return {
         },
         shortcut = {
           {
-            icon = ' ',
+            icon = '󰈙 ',
             icon_hl = '@variable',
-            desc = 'Files',
+            desc = 'Work Notes',
             group = 'Label',
-            action = 'Telescope find_files',
-            key = 'f',
+            action = function()
+              open_project(vim.fn.expand '/Users/orbarila/Library/CloudStorage/OneDrive-Microsoft/notes_vault/work', 'tele')
+            end,
+            key = 'w',
+          },
+          {
+            icon = '󰈙 ',
+            icon_hl = '@variable',
+            desc = 'Personal Notes',
+            group = 'Label',
+            action = function()
+              open_project(vim.fn.expand '/Users/orbarila/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal', 'tele')
+            end,
+            key = 'p',
           },
           {
             icon = ' ',
-            icon_hl = '@variable',
-            desc = 'Nvim config',
-            group = 'Label',
-            action = function()
-              open_project(vim.fn.expand '~/.config/nvim', 'tele')
-            end,
-            key = 'c',
-          },
-          {
-            icon = ' ',
-            icon_hl = '@variable',
-            desc = 'zshrc',
-            group = 'Label',
-            action = function()
-              open_project(vim.fn.expand 'edit ~/.config/zsh/', 'tele')
-            end,
-            key = 'z',
-          },
-          {
-            icon = '󱀺',
             icon_hl = '@variable',
             desc = 'dotfiles',
             group = 'Label',
