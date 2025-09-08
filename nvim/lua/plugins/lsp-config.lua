@@ -289,6 +289,9 @@ return {
             },
           },
         },
+
+        -- markdown
+        marksman = {},
       }
 
       -- Ensure the servers and tools above are installed
