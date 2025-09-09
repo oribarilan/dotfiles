@@ -19,11 +19,12 @@ return {
   branch = 'release/1.x',
   event = 'LspAttach',
   config = function()
-    require("lensline").setup {
+    require('lensline').setup {
       style = {
         placement = 'inline',
         prefix = '',
       },
+      debug_mode = true,
     }
   end,
 }
