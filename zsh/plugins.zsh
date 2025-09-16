@@ -32,6 +32,12 @@ zinit wait lucid for \
 # Ctrl+T - fuzzy search files
 [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 # activate direnv (auto load and unload .envrc files in directories)
 # for python projects, add `layout python .venv` to .envrc
 eval "$(direnv hook zsh)"
