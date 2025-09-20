@@ -17,3 +17,6 @@ font-family = "Fira Code Mono"
 # invert fg/bg of the cell under the cursor
 cursor-color = #5fd7ff
 cursor-text  = #000000
+
+# shaders from https://github.com/KroneCorylus/ghostty-shader-playground/tree/main/shaders
+custom-shader = "~/.config/dotfiles/ghostty/shaders/cursor_smear_fade.glsl"
