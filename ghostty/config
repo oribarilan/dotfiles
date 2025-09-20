@@ -3,7 +3,7 @@
 
 # reload config with cmd + shift + ,
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 keybind = cmd+/=new_split:right
 keybind = cmd+\=new_split:down
