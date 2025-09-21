@@ -119,19 +119,19 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --   builtin.find_files { cwd = vim.fn.stdpath 'config' }
     -- end, { desc = '[S]earch [N]eovim files' })
 
-    -- Open Telescope if Neovim was started with a directory
-    vim.api.nvim_create_autocmd('UIEnter', {
-      callback = function()
-        if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[1]) == 1 then
-          vim.cmd.cd(vim.fn.argv()[1])
-          local builtin = require 'telescope.builtin'
-          if vim.fn.isdirectory '.git' == 1 then
-            builtin.git_files { show_untracked = true }
-          else
-            builtin.find_files()
-          end
-        end
-      end,
-    })
+    -- Open Telescope if Neovim was started with a directory:
+    -- vim.api.nvim_create_autocmd('UIEnter', {
+    --   callback = function()
+    --     if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[1]) == 1 then
+    --       vim.cmd.cd(vim.fn.argv()[1])
+    --       local builtin = require 'telescope.builtin'
+    --       if vim.fn.isdirectory '.git' == 1 then
+    --         builtin.git_files { show_untracked = true }
+    --       else
+    --         builtin.find_files()
+    --       end
+    --     end
+    --   end,
+    -- })
   end,
 }
