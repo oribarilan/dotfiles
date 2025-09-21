@@ -183,6 +183,25 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 
 - direnv - load .envrc files automatically in directories
 
+## yazi
+
+<details>
+<summary>Installation</summary>
+
+- in your `~/.zshrc` file, add the following line:
+
+```zsh
+export PATH="~/path/to/dotfiles/yazi/"
+```
+
+</details>
+
+<details>
+<summary>Default Configurations</summary>
+
+- showing dotfiles by default
+
+</details>
 </details>
 
 <details>

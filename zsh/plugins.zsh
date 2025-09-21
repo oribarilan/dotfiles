@@ -42,3 +42,6 @@ eval "$(pyenv init -)"
 # for python projects, add `layout python .venv` to .envrc
 eval "$(direnv hook zsh)"
 
+# yazi config
+export YAZI_CONFIG_HOME=~/.config/dotfiles/yazi/
+
