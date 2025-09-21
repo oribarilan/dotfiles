@@ -5,6 +5,10 @@ if [[ $ZSH_PROF == 1 ]]; then
   zmodload zsh/zprof
 fi
 
+# basic setup
+export EDITOR=nvim
+# end - basic setup
+
 source "${0:A:h}/theme.zsh"
 source "${0:A:h}/plugins.zsh"
 source "${0:A:h}/aliases.zsh"
