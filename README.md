@@ -15,6 +15,7 @@
 <summary>Session Management</summary>
 
 - <C-a>t go to existing configured session (while in tmux)
+- <C-a> while not in tmux, will show session and jump into it
 
 <summary>Core Features</summary>
 
@@ -187,6 +188,8 @@ source `~/path/to/dotfiles/zsh/oribi.zsh`
 - fc - fix command (edit, wq, auto run)
 
 - direnv - load .envrc files automatically in directories
+
+- sesh - tmux session management (outside tmux)
 
 ## yazi
 
