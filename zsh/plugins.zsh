@@ -38,9 +38,14 @@ export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
+# direnv
 # activate direnv (auto load and unload .envrc files in directories)
 # for python projects, add `layout python .venv` to .envrc
 eval "$(direnv hook zsh)"
+# force direnv to run on shell startup, otherwise it only takes effect on cd (for this setup, important for tmux/sesh)
+if [[ -n "$PWD" ]]; then
+  direnv export zsh > /dev/null
+fi
 
 # yazi config
 export YAZI_CONFIG_HOME=~/.config/dotfiles/yazi/
