@@ -7,10 +7,15 @@
 
 1. Install tmux
 2. Install tmux package manager (`tpm`) from https://github.com/tmux-plugins/tpm
-
+3. Install `sesh` (using brew) and set up its own config using symlink (`ln -s /path/to/dotfiles/sesh ~/.config/sesh`)
 </details>
 
 <details>
+
+<summary>Session Management</summary>
+
+- <C-a>t go to existing configured session (while in tmux)
+
 <summary>Core Features</summary>
 
 - <C-h/j/k/l> pane navigation in tmux & nvim

@@ -1,0 +1,15 @@
+[[session]]
+name = "Port-Lab"
+path = "~/repos/mde/OneCyber.Content/WDATP/Port.Lab/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "Detection-Resources"
+path = "~/repos/mde/Detection.Resources/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "Port-Runner"
+path = "~/repos/mde/Port.Runner/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
