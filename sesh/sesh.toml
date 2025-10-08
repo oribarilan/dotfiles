@@ -13,3 +13,12 @@ name = "Port-Runner"
 path = "~/repos/mde/Port.Runner/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
+[[session]]
+name = "Lensline"
+path = "~/repos/personal/lensline.nvim/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "Dotfiles"
+path = "~/.config/dotfiles/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
