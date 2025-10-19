@@ -8,6 +8,8 @@ zlight() {
 }
 
 # vi mode
+# i prefer to set up my own vi-mode (see /vi_mode.zsh)
+# but this plugin is also nice
 # zlight jeffreytse/zsh-vi-mode
 
 # eagerly load the following plugins
@@ -74,6 +76,7 @@ function sesh-sessions() {
     sesh connect "$session"
   }
 }
+
 zle -N sesh-sessions
 bindkey -M emacs '^A' sesh-sessions
 bindkey -M vicmd '^A' sesh-sessions

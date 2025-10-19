@@ -12,6 +12,7 @@ export EDITOR=nvim
 source "${0:A:h}/theme.zsh"
 source "${0:A:h}/plugins.zsh"
 source "${0:A:h}/aliases.zsh"
+source "${0:A:h}/vi_mode.zsh"
 
 if [[ $ZSH_PROF == 1 ]]; then
   zprof
