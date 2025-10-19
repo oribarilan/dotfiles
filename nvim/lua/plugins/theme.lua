@@ -55,7 +55,7 @@ return {
           ['@variable'] = { fg = bright_white },
           ['@variable.builtin'] = { fg = bright_white },
           ['@variable.member'] = { fg = bright_white },
-          ['@function.call'] = { fg = bright_white },
+
           -- Function calls - subtle hint of blue
           ['@function.call'] = { fg = '#a0b8d0' },
           ['@function.method.call'] = { fg = '#a0b8d0' },
