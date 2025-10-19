@@ -20,3 +20,6 @@ cursor-text  = #000000
 
 # shaders from https://github.com/KroneCorylus/ghostty-shader-playground/tree/main/shaders
 custom-shader = "~/.config/dotfiles/ghostty/shaders/cursor_smear_fade.glsl"
+
+window-colorspace = display-p3
+alpha-blending = linear-corrected
