@@ -1,6 +1,7 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
+  -- hello
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -112,6 +113,43 @@ return { -- Fuzzy Finder (files, lsp, etc)
         prompt_title = 'Live Grep in Open Files',
       }
     end, { desc = '[S]earch [/] in Open Files' })
+
+    vim.keymap.set('n', '<leader>sm', function()
+      local modified_bufs = {}
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].modified then
+          local name = vim.api.nvim_buf_get_name(buf)
+          if name ~= '' then
+            table.insert(modified_bufs, buf)
+          end
+        end
+      end
+      if #modified_bufs == 0 then
+        vim.notify('No modified buffers', vim.log.levels.INFO)
+        return
+      end
+      require('telescope.pickers')
+        .new({}, {
+          prompt_title = 'Modified Files',
+          finder = require('telescope.finders').new_table {
+            results = modified_bufs,
+            entry_maker = function(bufnr)
+              local name = vim.api.nvim_buf_get_name(bufnr)
+              return {
+                value = bufnr,
+                display = vim.fn.fnamemodify(name, ':~:.'),
+                ordinal = name,
+                bufnr = bufnr,
+                filename = name,
+                lnum = 1,
+              }
+            end,
+          },
+          sorter = require('telescope.config').values.generic_sorter {},
+          previewer = require('telescope.config').values.file_previewer {},
+        })
+        :find()
+    end, { desc = '[S]earch [m]odified files' })
 
     -- should search all dotilfes in the future
     -- Shortcut for searching your Neovim configuration files
