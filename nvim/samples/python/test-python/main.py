@@ -18,7 +18,6 @@ class Calculator:
 
     def multiply(self, x: int, y: int) -> int:
         """Multiply two numbers."""
-
         self.result = x * y
         return self.result
 
