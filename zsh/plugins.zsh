@@ -49,12 +49,11 @@ eval "$(pyenv init - --no-rehash)"
 
 # direnv
 # activate direnv (auto load and unload .envrc files in directories)
-# for python projects, add `layout python .venv` to .envrc
 eval "$(direnv hook zsh)"
-# force direnv to run on shell startup, otherwise it only takes effect on cd (for this setup, important for tmux/sesh)
-if [[ -n "$PWD" ]]; then
-  direnv export zsh > /dev/null
-fi
+# Force export on startup for tmux/sesh workflow: new tmux panes inherit the current directory
+# but direnv normally only triggers on 'cd'. Without this, you'd need to run 'cd .' in each new
+# pane to activate the .envrc. Only runs if .envrc exists (optimization to save ~10ms otherwise).
+[[ -f .envrc ]] && direnv export zsh > /dev/null
 
 # yazi config
 export YAZI_CONFIG_HOME=~/.config/dotfiles/yazi/
