@@ -22,7 +22,9 @@ for i in $(seq 1 $ITERATIONS); do
   echo -n "run $i/$ITERATIONS... "
   
   # time how long it takes to start zsh and exit immediatly
-  result=$( (time zsh -i -c exit) 2>&1 | grep real | awk '{print $2}')
+  # disable instant prompt and gitstatus for benchmark (they don't work with -c)
+  # redirect stderr to /dev/null to suppress warnings, keep timing output
+  result=$( { time env POWERLEVEL9K_INSTANT_PROMPT=off POWERLEVEL9K_DISABLE_GITSTATUS=true zsh -i -c exit 2>/dev/null; } 2>&1 | grep real | awk '{print $2}')
   
   # check if zsh actualy ran successfully
   if [[ -z "$result" ]]; then
