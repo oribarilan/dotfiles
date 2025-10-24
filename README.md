@@ -208,6 +208,7 @@ export PATH="~/path/to/dotfiles/yazi/"
 <summary>Default Configurations</summary>
 
 - showing dotfiles by default
+- `g` shortcuts
 
 </details>
 </details>
@@ -219,5 +220,16 @@ export PATH="~/path/to/dotfiles/yazi/"
 - Lightweight prompt theme (with git support)
 - Auto-suggestions
 - Syntax hightlighting
+
+</details>
+
+## Raycast
+
+<details>
+
+<summary>Installation</summary>
+
+- Install Raycast from https://raycast.com/
+- Add the script directory to `~/path/to/dotfiles/raycast/scripts` in Raycast preferences
 
 </details>
