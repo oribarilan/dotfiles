@@ -1,6 +1,9 @@
 ## Load zinit
 source "${ZINIT_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git}/zinit.zsh"
 
+# cache brew prefix to avoid slow subprocess calls
+HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
+
 zlight() {
   # Use shallow clone (only latest commit) to speed up plugin install
   zinit ice depth=1
@@ -20,7 +23,12 @@ zlight zsh-users/zsh-completions
 # this must happen before plugins that wrap widgets (e.g., zsh-autosuggestions, fast-syntax-highlighting)
 # completions must happen before this
 autoload -Uz compinit
-compinit
+# only rebuild compinit cache once per day - optimization to speed up zsh startup
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zlight Aloxaf/fzf-tab
 
 # lazy load the following plugins
@@ -32,13 +40,12 @@ zinit wait lucid for \
 # Loads interactive key bindings for fzf
 # Ctrl+R - fuzzy search history
 # Ctrl+T - fuzzy search files
-[[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+[[ -f "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" ]] && source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+eval "$(pyenv init - --no-rehash)"
 
 # direnv
 # activate direnv (auto load and unload .envrc files in directories)

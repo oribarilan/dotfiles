@@ -1,5 +1,8 @@
+# cache brew prefix to avoid slow subprocess calls (if not already set)
+HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
+
 # if p10k installed via homebrew, follow the installation
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
