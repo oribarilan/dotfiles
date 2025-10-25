@@ -27,6 +27,9 @@
 8. Set `Cmd+Shift+V` → Paste with matching style ([guide](https://superuser.com/a/725127))
 9. Hyperkey (Caps Lock → Ctrl+Opt+Cmd)
 10. [DisplayLink](https://www.displaylink.com/downloads/macos) for external monitor issues
+11. **Keyboard Shortcuts**
+    - System Preferences → Keyboard → Keyboard Shortcuts → Keyboard → "Move focus to the next window"
+    - Set shortcut (e.g., hyper + 'a') for alternating between windows of the same app
 
 ### Peripherals
 
@@ -119,11 +122,14 @@
 - **Ghostty**
 - Alternatives: WezTerm, Alacritty, Kitty
 
-1. Install [Homebrew](https://brew.sh)
 ### Development
 
-- **IDE**:
-    - nvim (set up via dotfiles)
+1. Install [Homebrew](https://brew.sh)
+2. **IDE**:
+   - **nvim** (set up via dotfiles)
+     - Set up nvim as an app:
+       1. Follow instructions in `/misc/nvim_automator.sh` to create an Automator app that launches nvim in terminal
+       2. Set `/misc/neovim-hicontrast.icns` as the icon (Get Info → Highlight small icon → Paste .icns file)
    - **JetBrains Toolbox**
      - Enable:
        - "Open files with single click"
@@ -134,7 +140,7 @@
      - Theme: *Catppuccin Macchiato*
      - Fonts: *Cascadia Code* or *Fira Code (ligatures on)*
      - Extensions: Git History, Todo Tree, Relative Goto, Settings Sync, Indent Rainbow, GitLens, Code Runner, Error Lens
-4. Lazygit (alternative: GitHub Desktop)
+3. Lazygit (alternative: GitHub Desktop)
 
 ### Virtual Machines
 
