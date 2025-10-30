@@ -8,6 +8,7 @@ fi
 # basic setup
 export EDITOR=nvim
 export OPENCODE_CONFIG="${HOME}/.config/dotfiles/opencode/opencode.jsonc"
+export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
 # end - basic setup
 
 source "${0:A:h}/theme.zsh"

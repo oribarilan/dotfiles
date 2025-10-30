@@ -21,3 +21,8 @@ zi() {
   dest=$(zoxide query --interactive) || return
   cd "$dest"
 }
+
+# alias to re-source oribi.zsh
+alias resource='source "${HOME}/.config/dotfiles/zsh/oribi.zsh" && echo "[oribi.zsh reloaded]"'
+# alias to update opencode via brew
+alias opencode-update='brew update && brew upgrade opencode && brew cleanup opencode'
