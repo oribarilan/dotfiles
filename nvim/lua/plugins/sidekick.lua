@@ -15,6 +15,15 @@ return {
         backend = 'tmux',
         enabled = true,
       },
+      win = {
+        -- Disable sidekick's navigation - let vim-tmux-navigator handle it
+        keys = {
+          nav_left = false,
+          nav_down = false,
+          nav_up = false,
+          nav_right = false,
+        },
+      },
     },
   },
   keys = {
