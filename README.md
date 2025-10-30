@@ -73,6 +73,9 @@ because of tools like lazy.nvim that will create a lazy-lock.json file in the nv
   - opt-n : dismiss suggestion
   - opt-j : next suggestion
   - opt-k : previous suggestion
+  - Commands:
+    - `:CopilotDisable` - disable Copilot and Sidekick NES
+    - `:CopilotEnable` - enable Copilot and Sidekick NES
 
 </details>
 
