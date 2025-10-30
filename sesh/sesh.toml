@@ -9,6 +9,11 @@ path = "~/repos/mde/Detection.Resources/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
 [[session]]
+name = "Detection-ADX-Resources"
+path = "~/repos/mde/Detection.ADX.Resources/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
 name = "Port-Runner"
 path = "~/repos/mde/Port.Runner/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
@@ -21,4 +26,9 @@ startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-
 [[session]]
 name = "Dotfiles"
 path = "~/.config/dotfiles/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "proj-opencode"
+path = "~/repos/opensource/opencode/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
