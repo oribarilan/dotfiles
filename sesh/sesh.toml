@@ -32,3 +32,9 @@ startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-
 name = "proj-opencode"
 path = "~/repos/opensource/opencode/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "scratch"
+path = "~/repos/personal/scratch/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+

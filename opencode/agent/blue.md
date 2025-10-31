@@ -19,6 +19,8 @@ permissions:
     "*": deny
   bash:
     "mkdir -p .plan": allow
+    "git diff *": allow
+    "git *": ask
     "*": deny
 ---
 
