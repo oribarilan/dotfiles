@@ -14,8 +14,8 @@
 
 <summary>Session Management</summary>
 
-- <C-a>t go to existing configured session (while in tmux)
-- <C-a> while not in tmux, will show session and jump into it
+- `<C-a>` (Ctrl-a) in zsh - open sesh session manager and jump into selected session
+- `<leader>a` (Ctrl-a + a) in tmux - open sesh session manager to switch sessions
 
 <summary>Core Features</summary>
 
