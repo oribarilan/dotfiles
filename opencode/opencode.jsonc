@@ -5,8 +5,8 @@
   "keybinds": {
     "messages_half_page_up": "ctrl+u",
     "messages_half_page_down": "ctrl+d",
-    // opt+enter (mac) or alt+enter (windows)
-    "input_newline": "alt+enter"
+    "input_newline": "shift+enter", // this requires tmux adjustments
+    "input_submit": "enter",
   },
   "share": "disabled",
   "permission": {
