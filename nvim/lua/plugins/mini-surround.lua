@@ -6,5 +6,21 @@
 return {
   'echasnovski/mini.surround',
   version = '*',
-  opts = {},
+  opts = {
+    custom_surroundings = {
+      -- Brackets: flipped spacing
+      ['('] = { output = { left = '(', right = ')' } },
+      [')'] = { output = { left = '( ', right = ' )' } },
+      ['['] = { output = { left = '[', right = ']' } },
+      [']'] = { output = { left = '[ ', right = ' ]' } },
+      ['{'] = { output = { left = '{', right = '}' } },
+      ['}'] = { output = { left = '{ ', right = ' }' } },
+
+      -- Quotes: flipped spacing
+      ['"'] = { output = { left = '"', right = '"' } },
+      ["'"] = { output = { left = "'", right = "'" } },
+      ['`'] = { output = { left = '`', right = '`' } },
+      ['”'] = { output = { left = '“ ', right = ' ”' } },
+    },
+  },
 }
