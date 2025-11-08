@@ -82,3 +82,48 @@ vim.o.scrolloff = 20
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+-- no auto continue comments on new line
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("no_auto_comment", {}),
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
+
+-- ide like highlight when stopping cursor
+vim.api.nvim_create_autocmd("CursorMoved", {
+	group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
+	desc = "Highlight references under cursor",
+	callback = function(ev)
+		-- Only run if the cursor is not in insert mode
+		if vim.fn.mode() == "i" then
+			return
+		end
+
+		-- Cache current word to avoid redundant LSP calls
+		local current_word = vim.fn.expand "<cword>"
+		if vim.b.current_word and vim.b.current_word == current_word then
+			return
+		end
+		vim.b.current_word = current_word
+
+		-- Check if any LSP client supports document highlighting
+		local clients = vim.lsp.get_clients { bufnr = ev.buf, method = "textDocument/documentHighlight" }
+		if #clients == 0 then
+			return
+		end
+
+		vim.lsp.buf.clear_references()
+		vim.lsp.buf.document_highlight()
+	end,
+})
+
+-- ide like highlight when stopping cursor
+vim.api.nvim_create_autocmd("CursorMovedI", {
+	group = "LspReferenceHighlight",
+	desc = "Clear highlights when entering insert mode",
+	callback = function()
+		vim.lsp.buf.clear_references()
+	end,
+})
