@@ -22,30 +22,32 @@ return {
           nav_down = false,
           nav_up = false,
           nav_right = false,
+          -- Disable ctrl+p to avoid conflict with opencode palette
+          prompt = false,
         },
       },
     },
   },
   keys = {
-    -- {
-    --   "<tab>",
-    --   function()
-    --     -- if there is a next edit, jump to it, otherwise apply it if any
-    --     if not require("sidekick").nes_jump_or_apply() then
-    --       return "<Tab>" -- fallback to normal tab
-    --     end
-    --   end,
-    --   expr = true,
-    --   desc = "Goto/Apply Next Edit Suggestion",
-    -- },
     {
-      '<c-.>',
+      "<leader>as",
       function()
-        require('sidekick.cli').toggle()
+        -- if there is a next edit, jump to it, otherwise apply it if any
+        if not require("sidekick").nes_jump_or_apply() then
+          return
+        end
       end,
-      desc = 'Sidekick Toggle',
-      mode = { 'n', 't', 'i', 'x' },
+      expr = true,
+      desc = "Goto/Apply Next Edit Suggestion",
     },
+    -- {
+    --   '<c-.>',
+    --   function()
+    --     require('sidekick.cli').toggle()
+    --   end,
+    --   desc = 'Sidekick Toggle',
+    --   mode = { 'n', 't', 'i', 'x' },
+    -- },
     {
       '<leader>aa',
       function()
@@ -54,7 +56,7 @@ return {
       desc = 'Sidekick Toggle CLI',
     },
     {
-      '<leader>as',
+      '<leader>ac',
       function()
         require('sidekick.cli').select()
       end,
