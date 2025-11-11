@@ -16,13 +16,24 @@ tools:
   read: true
   grep: true
   glob: true
-permissions:
-  write:
-    ".plan/**": allow
-    "*": deny
-  edit:
-    ".plan/**": allow
-    "*": deny
+permission:
+  edit: ask
+  webfetch: ask
+  bash:
+    "mkdir -p .plan": allow
+    "git status*": allow
+    "git diff*": allow
+    "git branch*": allow
+    "git log*": allow
+    "git show*": allow
+    "git rev-parse*": allow
+    "git push*": deny
+    "git commit*": deny
+    "git merge*": deny
+    "git rebase*": deny
+    "git reset*": deny
+    "git cherry-pick*": deny
+    "git *": ask
 ---
 
 You are the **Review Agent** for this project.

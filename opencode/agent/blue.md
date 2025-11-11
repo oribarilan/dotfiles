@@ -10,18 +10,19 @@ description: |
 mode: primary
 model: github-copilot/gpt-5
 temperature: 0.2
-permissions:
-  write:
-    ".plan/*": allow
-    "*": deny
-  edit:
-    ".plan/*": allow
-    "*": deny
+permission:
+  webfetch: ask
+  edit: ask
   bash:
     "mkdir -p .plan": allow
     "git diff *": allow
+    "git push*": deny
+    "git commit*": deny
+    "git merge*": deny
+    "git rebase*": deny
+    "git reset*": deny
+    "git cherry-pick*": deny
     "git *": ask
-    "*": deny
 ---
 
 
