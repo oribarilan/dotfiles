@@ -6,6 +6,7 @@ return {
   opts = {
     flavour = 'mocha',
     no_italic = true,
+    transparent_background = true,  -- Allow tmux to control background dimming for inactive panes. Remove if not using tmux dimming.
     integrations = {
       cmp = true,
       gitsigns = true,
@@ -19,7 +20,7 @@ return {
         local subtle = C.overlay2
         local bright_white = '#ffffff'
         return {
-          Normal = { fg = bright_white, bg = C.base },
+          Normal = { fg = bright_white },  -- No bg set - transparent to support tmux dimming
           Comment = { fg = subtle },
           Docstring = { fg = subtle },
           LineNr = { fg = subtle },
