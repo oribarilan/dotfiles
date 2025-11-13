@@ -67,6 +67,7 @@ return {
         map('n', '<leader>ghp', gitsigns.preview_hunk, { desc = 'hunk [p]review' })
 
         -- Buffer-wide git operations
+        map('n', '<leader>gb', gitsigns.blame, { desc = 'git [b]lame buffer' })
         map('n', '<leader>gs', gitsigns.stage_buffer, { desc = 'git [s]tage buffer' })
         map('n', '<leader>gr', gitsigns.reset_buffer, { desc = 'git [r]eset buffer' })
         map('n', '<leader>gd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
