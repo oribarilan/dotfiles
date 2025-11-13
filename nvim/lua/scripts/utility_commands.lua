@@ -19,5 +19,6 @@ vim.api.nvim_create_user_command('LineNumbersToggle', LineNumbersToggle, { desc 
 -- Keymaps for utility group (<leader>u)
 vim.keymap.set('n', '<leader>ul', '<cmd>LineNumbersToggle<cr>', { desc = '[L]ine numbers toggle' })
 vim.keymap.set('n', '<leader>ur', '<cmd>e!<cr>', { desc = '[R]eload file from disk' })
+vim.keymap.set('n', '<leader>ub', '<cmd>bd<cr>', { desc = '[B]uffer close' })
 vim.keymap.set('n', '<leader>uce', '<cmd>CopilotEnable<cr>', { desc = '[C]opilot [E]enable' })
 vim.keymap.set('n', '<leader>ucd', '<cmd>CopilotDisable<cr>', { desc = '[C]opilot [D]isable' })
