@@ -38,3 +38,23 @@ name = "scratch"
 path = "~/repos/personal/scratch/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
+[[session]]
+name = "hippo"
+path = "~/repos/personal/hippo/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "vault-demo"
+path = "~/repos/personal/vault-demo/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "vault-personal"
+path = "'/Users/orbarila/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal'"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "vault-work"
+path = "/Users/orbarila/Library/CloudStorage/OneDrive-Microsoft/notes_vault/work"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+

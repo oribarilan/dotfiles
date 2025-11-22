@@ -9,6 +9,7 @@ fi
 export EDITOR=nvim
 export OPENCODE_CONFIG="${HOME}/.config/dotfiles/opencode/opencode.jsonc"
 export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
+export PRESENTERM_CONFIG_FILE="${HOME}/.config/dotfiles/presenterm/config.yaml"
 # end - basic setup
 
 source "${0:A:h}/theme.zsh"

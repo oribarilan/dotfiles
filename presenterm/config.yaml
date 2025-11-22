@@ -1,0 +1,4 @@
+defaults:
+  theme: catppuccin-mocha
+options:
+  incremental_lists: true
