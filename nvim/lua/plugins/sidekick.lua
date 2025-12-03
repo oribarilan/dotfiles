@@ -7,6 +7,7 @@ return {
         opencode = {
           cmd = { 'opencode' },
           env = {
+            PYTHONPATH = "src",
             OPENCODE_CONFIG_DIR = vim.fn.expand('~/.config/dotfiles/opencode'),
           },
         },
