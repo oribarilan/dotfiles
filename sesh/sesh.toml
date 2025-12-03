@@ -4,6 +4,11 @@ path = "~/repos/mde/OneCyber.Content/WDATP/Port.Lab/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
 [[session]]
+name = "OneCyber-Content"
+path = "~/repos/mde/OneCyber.Content/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
 name = "Detection-Resources"
 path = "~/repos/mde/Detection.Resources/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
@@ -56,5 +61,10 @@ startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-
 [[session]]
 name = "vault-work"
 path = "/Users/orbarila/Library/CloudStorage/OneDrive-Microsoft/notes_vault/work"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "me"
+path = "~/repos/personal/me/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
