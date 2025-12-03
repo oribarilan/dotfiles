@@ -1,26 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "nord",
-  "model": "github-copilot/claude-sonnet-4.5",
+  "model": "github-copilot/claude-opus-4.5",
   "keybinds": {
     "messages_half_page_up": "ctrl+u",
     "messages_half_page_down": "ctrl+d",
     "input_newline": "shift+enter", // this requires tmux adjustments
     "input_submit": "enter",
+    "session_child_cycle": "<leader>+right,<leader>l",
+    "session_child_cycle_reverse": "<leader>+left,<leader>h",
   },
   "share": "disabled",
-  "permission": {
-    "bash": {
-      "*": "deny",
-      "git push": "deny",
-      "git pull": "ask",
-      "git commit": "ask",
-      "git status": "allow",
-      "git fetch": "allow",
-      "git diff": "allow",
-      "ls": "allow",
-      "pwd": "allow"
-    },
-    "webfetch": "ask"
-  }
 }
