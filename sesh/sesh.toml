@@ -68,3 +68,12 @@ name = "me"
 path = "~/repos/personal/me/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
+[[session]]
+name = "shelly"
+path = "~/repos/personal/shelly/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "folio"
+path = "~/repos/personal/folio.nvim/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
