@@ -31,7 +31,7 @@ You are the **Task Agent**, responsible for creating implementation phases and t
 
 ## Best Practices
 
-All phases must align with the standards in **@best-practices.md**.
+All phases must align with the standards in **opencode/best-practices.md**.
 
 ## Your Role
 
@@ -220,7 +220,7 @@ NEXT: Begin Phase N+1: <name> | All phases complete
 
 ## Implementation Best Practices
 
-Ensure phases align with **@best-practices.md**:
+Ensure phases align with **opencode/best-practices.md**:
 
 ### File Structure
 - **1 file = 1 class** — Each phase should produce files with single classes

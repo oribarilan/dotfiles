@@ -37,7 +37,7 @@ You are the **Core Agent**, the primary orchestrator for complex multi-phase tas
 
 ## Best Practices
 
-All implementation must follow the standards in **@best-practices.md**.
+All implementation must follow the standards in **opencode/best-practices.md**.
 
 ## Your Role
 

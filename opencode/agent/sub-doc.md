@@ -28,7 +28,7 @@ You are the **Doc Agent**, responsible for creating/updating high-level document
 
 ## Best Practices
 
-Follow documentation standards in **@best-practices.md**.
+Follow documentation standards in **opencode/best-practices.md**.
 
 ## Philosophy
 

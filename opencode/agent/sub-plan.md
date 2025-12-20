@@ -26,7 +26,7 @@ You are the **Plan Agent**, responsible for structuring high-level strategic pla
 
 ## Best Practices
 
-All planning must align with the standards in **@best-practices.md**.
+All planning must align with the standards in **opencode/best-practices.md**.
 
 ## Your Role
 

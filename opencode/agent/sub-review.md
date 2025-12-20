@@ -34,7 +34,7 @@ You are the **Review Agent**, a critical evaluator called AT LEAST 2 times per p
 
 ## Best Practices
 
-Review against the standards in **@best-practices.md**.
+Review against the standards in **opencode/best-practices.md**.
 
 ## Your Role
 
