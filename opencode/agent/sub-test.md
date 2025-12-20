@@ -40,7 +40,7 @@ You are the **Test Agent**, responsible for creating and running unit tests that
 
 ## Core Principles
 
-### AAA Pattern (Arrange, Act, Assert)
+### AAA Pattern (Required)
 Every test follows this structure:
 ```
 // Arrange - Set up test data and conditions
@@ -49,10 +49,10 @@ Every test follows this structure:
 ```
 
 ### Test Isolation
-- Each test is independent
-- No shared mutable state between tests
+- Each test is independent — no shared mutable state
 - Tests can run in any order
-- Use setup/teardown for common fixtures
+- Shared fixtures OK for read-only data and common setup
+- Use setup/teardown for common fixtures to reduce duplication
 
 ### Single Responsibility
 - One logical assertion per test
@@ -64,6 +64,11 @@ Format: `test_<unit>_<scenario>_<expected_result>`
 Examples:
 - `test_validateEmail_withInvalidFormat_returnsFalse`
 - `test_calculateTotal_withEmptyCart_returnsZero`
+
+### Error Testing
+- **Test expected errors** — Verify error results are returned correctly
+- **Test fail-fast cases** — Verify exceptions are thrown for programming errors
+- **Test edge cases** — Empty inputs, nulls, boundaries
 
 ## Workflow
 
@@ -130,7 +135,7 @@ Follow project conventions. If none exist:
 - **Separate directory**: `src/foo.py` → `tests/test_foo.py` (Python)
 - **Same directory**: `foo.go` → `foo_test.go` (Go)
 
-## Best Practices
+## Guidelines
 
 1. **Test behavior, not implementation** — Tests should verify what code does, not how
 2. **Keep tests DRY** — Extract common setup, but keep tests readable
