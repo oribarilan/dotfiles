@@ -112,15 +112,18 @@ Failures (if any):
 
 ## Test Categories
 
-### Unit Tests (Primary Focus)
+### Unit Tests (Primary Focus — Always Prefer)
+- **Default choice** — Always write unit tests first
 - Test individual functions/methods
 - Mock external dependencies
-- Fast execution
+- Fast execution, easy to debug
+- Only escalate to integration tests when unit tests cannot verify the behavior
 
-### Integration Tests (When Needed)
-- Test component interactions
+### Integration Tests (Use Sparingly)
+- Only when testing component interactions that unit tests cannot verify
+- Examples: database transactions, API contract validation, multi-service flows
 - Minimal mocking
-- Verify contracts
+- Slower and harder to debug — avoid when possible
 
 ## Coverage Requirements
 
