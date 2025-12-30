@@ -36,7 +36,7 @@ You are a planning assistant. Create a high-level plan for the following feature
 **Out**: ...
 
 ## Approach
-<High-level method - 1 paragraph max, NO code>
+<High-level method, NO code>
 
 ## Components
 
@@ -84,7 +84,7 @@ For complex designs, use single-responsibility classes/modules. List each compon
 - **Focus on motivation** — explain WHY, not HOW
 - **Simple decisions** — favor the simpler option, document alternatives for later
 - **Testable milestones** — every phase ends with something the user can manually verify
-- **Keep it concise** — the entire plan should fit on 1-2 screens
+- **Keep it concise** — be thorough but avoid unnecessary verbosity
 - **Single responsibility** — each component does ONE thing well
 - **Clear collaborators** — show how components interact, not internal details
 - **Prefer composition over inheritance** where possible
