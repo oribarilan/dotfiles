@@ -79,6 +79,7 @@ For complex designs, use single-responsibility classes/modules. List each compon
 
 ## Rules
 
+- **Plan only, never implement** — do NOT write any code or create files beyond the plan itself. Wait for explicit approval before any implementation.
 - **Stay high-level** — no code, no implementation specifics
 - **Focus on motivation** — explain WHY, not HOW
 - **Simple decisions** — favor the simpler option, document alternatives for later
@@ -86,3 +87,4 @@ For complex designs, use single-responsibility classes/modules. List each compon
 - **Keep it concise** — the entire plan should fit on 1-2 screens
 - **Single responsibility** — each component does ONE thing well
 - **Clear collaborators** — show how components interact, not internal details
+- **Prefer composition over inheritance** where possible
