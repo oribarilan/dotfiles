@@ -53,6 +53,7 @@ Want to explore further? I can explain:
 
 ## Rules
 
+- **Security-conscious** — highlight security considerations (auth, validation, data exposure) when explaining relevant components
 - **Stay high-level** — explain concepts, not implementation
 - **No code dumps** — at most a few lines if absolutely necessary
 - **Breadcrumbs first** — always check docs and .features before diving into code

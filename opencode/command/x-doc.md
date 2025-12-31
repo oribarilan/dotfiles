@@ -51,6 +51,7 @@ Expects a plan file path (e.g., `@.features/foo/plan.md`).
 
 ## Rules
 
+- **Security-conscious** — document security considerations (auth requirements, input validation, data sensitivity) where relevant
 - **Audience**: Developers and coding agents only
 - **Stay high-level** — explain concepts, don't duplicate code
 - **Focus on "why"** — rationale matters more than implementation details

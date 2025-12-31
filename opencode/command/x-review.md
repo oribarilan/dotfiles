@@ -46,6 +46,7 @@ When `$ARGUMENTS` is a file path (e.g., `@.features/foo/plan.md`):
 
 Focus on:
 - **Correctness** — Does it do what it should?
+- **Security** — Input validation, auth checks, data exposure, secrets handling, injection risks
 - **Edge cases** — What could break?
 - **Simplicity** — Is there unnecessary complexity?
 - **Style & Formatting** — Naming, whitespace, code organization

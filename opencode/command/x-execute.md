@@ -53,6 +53,7 @@ Expects a plan file path (e.g., `@.features/foo/plan.md`).
 ### General
 - **Follow existing patterns** — match codebase conventions
 - **Prefer composition over inheritance** where possible
+- **Security-conscious** — validate inputs, sanitize outputs, handle secrets properly, follow least-privilege principle
 
 ## Conflict Resolution
 

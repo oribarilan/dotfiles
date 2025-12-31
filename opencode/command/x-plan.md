@@ -79,6 +79,7 @@ For complex designs, use single-responsibility classes/modules. List each compon
 
 ## Rules
 
+- **Security-conscious** — identify security implications (auth, input validation, data exposure, secrets handling) and address them in the plan
 - **Plan only, never implement** — do NOT write any code or create files beyond the plan itself. Wait for explicit approval before any implementation.
 - **Stay high-level** — no code, no implementation specifics
 - **Focus on motivation** — explain WHY, not HOW
