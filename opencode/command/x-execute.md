@@ -54,6 +54,7 @@ Expects a plan file path (e.g., `@.features/foo/plan.md`).
 - **Follow existing patterns** — match codebase conventions
 - **Prefer composition over inheritance** where possible
 - **Security-conscious** — validate inputs, sanitize outputs, handle secrets properly, follow least-privilege principle
+- **Testing strategy** — prefer isolated unit tests; e2e tests require approval; ad-hoc scripts only as last resort or temporary prototypes
 
 ## Conflict Resolution
 
