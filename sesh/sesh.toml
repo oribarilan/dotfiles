@@ -61,7 +61,7 @@ startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-
 [[session]]
 name = "vault-work"
 path = "/Users/orbarila/Library/CloudStorage/OneDrive-Microsoft/notes_vault/work"
-startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 1 "copilot" C-m \; send-keys -t 2 "yazi" C-m'
 
 [[session]]
 name = "me"
@@ -74,6 +74,6 @@ path = "~/repos/personal/shelly/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
 [[session]]
-name = "folio"
-path = "~/repos/personal/folio.nvim/"
+name = "medly"
+path = "~/repos/personal/medly/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'

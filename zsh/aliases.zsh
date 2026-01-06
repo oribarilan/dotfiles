@@ -4,6 +4,7 @@ alias tkill='tmux ls | grep -E "^[0-9]+:" | cut -d: -f1 | xargs -n1 tmux kill-se
 alias tattach='tmux attach-session -t "$(tmux ls | awk -F: '\''!($1 ~ /^[0-9]+$/) {print $1}'\'' | fzf)"'
 alias t='tattach'
 alias y='yazi'
+alias nvim-nightly='~/.local/share/bob/nightly/bin/nvim'
 
 # Quick directory back navigation aliases
 alias ..='cd ..'
