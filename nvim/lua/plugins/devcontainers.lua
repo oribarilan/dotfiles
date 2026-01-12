@@ -7,7 +7,7 @@ return {
   config = function()
     require('devcontainers').setup {
       dev_path = '~/repos/personal/devcontainers.nvim',
-      enter_mode = 'nested',
+      debug = true,
     }
   end,
 
