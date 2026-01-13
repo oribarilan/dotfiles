@@ -1,0 +1,1 @@
+/Users/orbarila/.config/dotfiles/opencode/superpowers/.opencode/plugin/superpowers.js
