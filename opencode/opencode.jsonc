@@ -11,4 +11,13 @@
     "session_child_cycle_reverse": "<leader>+left,<leader>h",
   },
   "share": "disabled",
+  "lsp": {
+    "pyright": {
+      "command": ["npx", "-y", "-p", "pyright", "pyright-langserver", "--stdio"],
+      "extensions": [".py", ".pyi"],
+      "env": {
+        "PYTHONPATH": "src"
+      }
+    }
+  }
 }
