@@ -34,7 +34,7 @@ Expects a plan file path (e.g., `@.features/foo/plan.md`).
 
 ## Rules
 
-### Backend
+- **Use native question tool** — ALWAYS use the `question` tool when asking for conflict resolution (creates selection UI, not free text)
 - **Single Responsibility**: One class per file, one responsibility per class
 - **Actor Naming**: Classes as actors with verb-noun names (e.g., `BlobWriter`, `RequestValidator`)
 - **Minimal API**: Expose only what's necessary, keep internals private
@@ -58,23 +58,22 @@ Expects a plan file path (e.g., `@.features/foo/plan.md`).
 
 ## Conflict Resolution
 
-When you detect a conflict:
+When you detect a conflict, use the native `question` tool to ask for guidance:
 
-```
-## ⚠️ Conflict Detected
+1. First, describe the conflict in text:
+   ```
+   ## Conflict Detected
 
-**Type**: Plan | Codebase | Technical
-**Location**: <file or plan section>
-**Issue**: <description>
+   **Type**: Plan | Codebase | Technical
+   **Location**: <file or plan section>
+   **Issue**: <description>
+   ```
 
-**Options**:
-1. <option A> — <tradeoff>
-2. <option B> — <tradeoff>
-
-**Recommendation**: <your suggestion>
-
-Waiting for guidance before proceeding...
-```
+2. Then use the `question` tool to present options:
+   - `header`: "Conflict"
+   - `question`: Brief summary of the issue
+   - `options`: The resolution options with their tradeoffs as descriptions
+   - Put your recommended option FIRST and append "(Recommended)" to its label
 
 Do NOT:
 - Silently deviate from the plan
