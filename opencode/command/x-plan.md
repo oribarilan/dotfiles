@@ -1,5 +1,5 @@
 ---
-description: Create a high-level plan for a feature
+description: Create a high-level plan for a feature, outputting atomic deliverable tasks
 ---
 
 You are a planning assistant. Create a high-level plan for the following feature:
@@ -8,26 +8,15 @@ You are a planning assistant. Create a high-level plan for the following feature
 
 ## Your Task
 
-1. **Create the plan file** at `.features/<name>/plan.md`
-   - Derive `<name>` from the feature using kebab-case (e.g., "user auth" -> `user-auth`)
-   - Create the `.features/<name>/` directory if it doesn't exist
-   - Include a **Questions** section listing the questions you'll ask (see format below)
+1. **Understand the feature** by asking clarifying questions
+2. **Create atomic deliverable tasks** as `.todo/<task-name>.md` files
+3. **Each task must be independently shippable** (follow the todo-backlog skill)
 
-2. **Ask questions using the native question tool**:
-   - After creating the plan, use the `question` tool to ask clarifying questions ONE AT A TIME
-   - ALWAYS use the `question` tool for questions with options - this creates a selection UI instead of free text
-   - Structure each question with:
-     - `header`: Short label (max 12 chars)
-     - `question`: The full question text
-     - `options`: Array of choices with `label` (1-5 words) and `description`
-     - Put your recommended option FIRST and append "(Recommended)" to its label
-   - Wait for the user's answer before asking the next question
-   - Update the plan based on each answer (modify relevant sections)
-   - Remove each answered question from the Questions section
+## Process
 
-3. **If scope is too broad**, suggest breaking into separate isolated plans. Only create the first plan; note the others in "Related Plans" section.
+### Step 1: Create Initial Plan Overview
 
-## Plan File Format
+Create `.todo/_plan-<feature-name>.md` as a lightweight overview (NOT a task file):
 
 ```markdown
 # Plan: <Feature Name>
@@ -46,20 +35,10 @@ You are a planning assistant. Create a high-level plan for the following feature
 ## Approach
 <High-level method, NO code>
 
-## Components
-
-For complex designs, use single-responsibility classes/modules. List each component:
-
-### <ComponentName>
-**Responsibility**: <one thing this class does>
-**Collaborators**: <other components it interacts with>
-
-### <AnotherComponent>
-**Responsibility**: ...
-**Collaborators**: ...
-
-### Interaction Summary
-<1-2 sentences describing how components work together, e.g., "Controller receives requests, delegates to Service, which uses Repository for persistence.">
+## Tasks
+<List of task files that will be created - update as you go>
+- [ ] `<task-1>.md` - <brief description>
+- [ ] `<task-2>.md` - <brief description>
 
 ## Decisions
 
@@ -68,47 +47,90 @@ For complex designs, use single-responsibility classes/modules. List each compon
 **Rationale**: <why this is the default>
 **Alternative**: <other option> — <when you'd choose this instead>
 
-## Phases
-
-### Phase 1: <Name>
-**Objective**: <what this achieves>
-**Deliverables**: <which components from above>
-**Milestone**: <what you can manually test after this phase>
-
-### Phase 2: <Name>
-...
-
 ## Risks / Open Questions
 - <anything uncertain or needs investigation>
-
-## Questions
-<List questions you'll ask here. Remove each after answered. Use the `question` tool to ask.>
-
-### Q1: <Question Title>
-**Question**: <The specific question>
-**Options**:
-1. **<Option A>** — <description>
-2. **<Option B>** — <description>
-**Recommendation**: <Option X> — <reasoning>
-
-<Remove this section once all questions are answered>
-
-## Related Plans
-<other plans if scope was split, otherwise omit this section>
 ```
+
+### Step 2: Ask Clarifying Questions
+
+Use the `question` tool to ask 2-4 clarifying questions ONE AT A TIME:
+- Structure each question with `header`, `question`, `options`
+- Put recommended option FIRST with "(Recommended)" suffix
+- Update the plan overview based on answers
+
+### Step 3: Create Task Files
+
+**IMPORTANT**: Use the `todo-backlog` skill for task file format.
+
+For each deliverable, create `.todo/<task-name>.md`:
+
+```markdown
+# Task: <descriptive-name>
+
+## Context
+<Why this task exists and what problem it solves>
+
+**Value delivered**: <What does completing this task ship? Must be valuable on its own>
+
+## Related Files
+- `path/to/relevant/file.ts`
+
+## Dependencies
+- None (or list task names that must complete first)
+
+Note: Dependencies indicate sequencing only. This task must still deliver value independently once unblocked.
+
+## Acceptance Criteria
+- [ ] Criterion 1 - specific, testable
+- [ ] Criterion 2 - specific, testable
+- [ ] Criterion 3 - specific, testable
+
+## Scope Estimate
+Small | Medium | Large
+
+## Notes
+Additional context, implementation hints, or considerations.
+```
+
+## Atomic Deliverables Rule
+
+**Each task must be a shippable unit** - something you deliver or don't deliver.
+
+**The Test**: "If I stopped after this task, would it deliver value on its own?"
+- **Yes** -> Valid task
+- **No** -> It's a subtask; merge it into its parent or rethink the breakdown
+
+**Good task examples:**
+- "Add user export to CSV" - delivers a complete feature
+- "Fix login timeout bug" - delivers a fix users can benefit from
+- "Refactor auth module for testability" - delivers improved code quality
+
+**Bad task examples (subtasks disguised as tasks):**
+- "Create database schema for export" - only valuable when export feature ships
+- "Add export button to UI" - incomplete without the actual export logic
+- "Write tests for auth refactor" - tests aren't the deliverable; the refactor is
+
+**Dependencies vs Subtasks:**
+- **Dependency**: Task B is blocked by Task A, but Task A delivers value independently
+- **Subtask**: Task B is meaningless without Task A shipping together
 
 ## Rules
 
-- **Use native question tool** — ALWAYS use the `question` tool for clarifying questions (creates selection UI, not free text)
-- **Questions first** — identify 2-4 clarifying questions about scope, constraints, existing patterns, or architectural choices. Write them in the plan, then ask one at a time using the `question` tool.
-- **Security-conscious** — identify security implications (auth, input validation, data exposure, secrets handling) and address them in the plan
-- **Plan only, never implement** — do NOT write any code or create files beyond the plan itself. Wait for explicit approval before any implementation.
-- **Stay high-level** — no code, no implementation specifics
-- **Focus on motivation** — explain WHY, not HOW
-- **Simple decisions** — favor the simpler option, document alternatives for later
-- **Testable milestones** — every phase ends with something the user can manually verify
-- **Testing strategy** — prefer isolated unit tests; e2e tests require approval; ad-hoc scripts only as last resort or temporary prototypes
-- **Keep it concise** — be thorough but avoid unnecessary verbosity
-- **Single responsibility** — each component does ONE thing well
-- **Clear collaborators** — show how components interact, not internal details
-- **Prefer composition over inheritance** where possible
+- **Use native question tool** for clarifying questions (creates selection UI)
+- **Atomic deliverables only** - each task file is a shippable package
+- **Plan only, never implement** - do NOT write any code beyond the task files
+- **Stay high-level** - no code in tasks, just acceptance criteria
+- **Focus on motivation** - explain WHY in context, WHAT in acceptance criteria
+- **Security-conscious** - identify security implications and address in relevant tasks
+- **If scope is too broad** - suggest breaking into separate plans, only create the first
+
+## Directory Setup
+
+Ensure `.todo/` structure exists:
+```
+.todo/
+├── pending-review/     # Completed, awaiting human approval
+├── archive/            # Approved/closed tasks
+├── _plan-<feature>.md  # Plan overview (prefixed with _ to sort first)
+└── <task-name>.md      # Active task files
+```
