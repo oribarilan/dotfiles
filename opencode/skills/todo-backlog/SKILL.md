@@ -32,7 +32,8 @@ A structured backlog system using `.todo/<task-name>.md` files with clear accept
 ## Picking a Task
 
 - Choose any `.todo/*.md` file (no priority ordering)
-- Tasks are independent unless explicitly noted in Dependencies section
+- Tasks are independent deliverables unless blocked by Dependencies
+- **Important**: Dependencies indicate sequencing, not that tasks belong together
 
 ## Working a Task
 
@@ -86,17 +87,41 @@ Small | Medium | Large
 Additional context, links, or considerations.
 ```
 
+## Task Granularity: Atomic Deliverables
+
+**Each task must be a shippable unit** - something you deliver or don't deliver. 
+
+**The Test**: "If I stopped after this task, would it deliver value on its own?"
+- **Yes** → Valid task
+- **No** → It's a subtask; merge it into its parent or rethink the breakdown
+
+**Good Examples:**
+- "Add user export to CSV" - delivers a complete feature
+- "Fix login timeout bug" - delivers a fix users can benefit from
+- "Refactor auth module for testability" - delivers improved code quality
+
+**Bad Examples (subtasks disguised as tasks):**
+- "Create database schema for export" - only valuable when export feature ships
+- "Add export button to UI" - incomplete without the actual export logic
+- "Write tests for auth refactor" - tests aren't the deliverable; the refactor is
+
+**Dependencies vs Subtasks:**
+- **Dependency**: Task B is blocked by Task A, but Task A delivers value independently
+- **Subtask**: Task B is meaningless without Task A shipping together
+
+Follow-up tasks are encouraged, but they follow the same rule. A follow-up blocked by a prior task must still be independently deliverable once unblocked.
+
 ## Task File Guidelines
 
 **Acceptance Criteria must be:**
 - Specific and unambiguous
 - Testable/verifiable
-- Independent where possible
+- Represent the full deliverable (not partial progress)
 
 **Context should include:**
 - Why the task exists
 - What problem it solves
-- Any relevant background
+- What value it delivers when complete
 
 **Related Files help agents:**
 - Find the right code quickly

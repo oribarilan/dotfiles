@@ -3,11 +3,15 @@
 ## Context
 Brief background on why this task exists and what problem it solves.
 
+**Value delivered**: What does completing this task ship? (Must be valuable on its own)
+
 ## Related Files
 - `path/to/relevant/file.ts`
 
 ## Dependencies
-- None
+- None (or list task names that must complete first)
+
+Note: Dependencies indicate sequencing only. This task must still deliver value independently once unblocked.
 
 ## Acceptance Criteria
 - [ ] Criterion 1 - specific, testable
