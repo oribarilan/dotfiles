@@ -126,11 +126,12 @@ Additional context, implementation hints, or considerations.
 
 ## Directory Setup
 
-Ensure `.todo/` structure exists:
+Ensure directories exist:
 ```
 .todo/
-├── pending-review/     # Completed, awaiting human approval
-├── archive/            # Approved/closed tasks
 ├── _plan-<feature>.md  # Plan overview (prefixed with _ to sort first)
 └── <task-name>.md      # Active task files
+
+.done/
+└── <task-name>.md      # Completed tasks (moved here when done)
 ```
