@@ -77,3 +77,13 @@ startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-
 name = "medly"
 path = "~/repos/personal/medly/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "spitpit"
+path = "~/repos/personal/spitpit/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "solopad"
+path = "~/repos/personal/solopad/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
