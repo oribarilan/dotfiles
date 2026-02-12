@@ -3,5 +3,11 @@ return {
   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
-  opts = {},
+  opts = {
+    html = {
+      comment = {
+        conceal = false,
+      },
+    },
+  },
 }

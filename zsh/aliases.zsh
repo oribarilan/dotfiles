@@ -6,6 +6,7 @@ alias tattach='tmux attach-session -t "$(tmux ls | awk -F: '\''!($1 ~ /^[0-9]+$/
 alias t='tattach'
 alias y='yazi'
 alias nvim-nightly='~/.local/share/bob/nightly/bin/nvim'
+alias pt='presenterm'
 
 # Quick directory back navigation aliases
 alias ..='cd ..'
