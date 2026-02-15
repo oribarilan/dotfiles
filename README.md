@@ -236,3 +236,62 @@ export PATH="~/path/to/dotfiles/yazi/"
 - Add the script directory to `~/path/to/dotfiles/raycast/scripts` in Raycast preferences
 
 </details>
+
+## keyd (Linux only)
+
+<details>
+<summary>Installation</summary>
+
+1. Install keyd from source:
+   ```bash
+   git clone https://github.com/rvaiya/keyd
+   cd keyd
+   make && sudo make install
+   sudo systemctl enable keyd
+   ```
+2. Symlink the config:
+   ```bash
+   sudo ln -sf ~/.dotfiles/keyd/default.conf /etc/keyd/default.conf
+   sudo systemctl restart keyd
+   ```
+3. Install the focus-or-launch GNOME Shell extension:
+   ```bash
+   ln -s ~/.dotfiles/keyd/gnome-extension \
+     ~/.local/share/gnome-shell/extensions/focus-or-launch@dotfiles
+   ```
+   Log out/in, then: `gnome-extensions enable focus-or-launch@dotfiles`
+
+4. Set up GNOME hotkeys — see `machine_setup.md` for full `gsettings` commands.
+
+</details>
+
+<details>
+<summary>Core Features</summary>
+
+Linux equivalent of [HyperKey](https://hyperkey.app/) on macOS.
+
+- Caps Lock tap → Escape
+- Caps Lock hold → Hyper (Meta/Super modifier)
+
+Hyper+key bindings (focus existing window or launch if not running):
+- Hyper+T → Ghostty
+- Hyper+B → Firefox
+- Hyper+A → Switch between windows of the same app
+
+</details>
+
+<details>
+<summary>Architecture</summary>
+
+Three layers work together:
+1. **keyd** — kernel-level key remapping, Caps hold emits Super modifier
+2. **GNOME custom shortcuts** — maps Super+key to run `focus-or-launch` script
+3. **GNOME Shell extension** (`focus-or-launch@dotfiles`) — runs inside GNOME Shell to focus Wayland windows via D-Bus
+
+This architecture is needed because:
+- keyd runs as root (systemd) and can't launch GUI apps
+- External tools (`wmctrl`, `xdotool`) can't see Wayland windows
+- GNOME's built-in `FocusApp` D-Bus method is permission-locked
+- Only code running inside GNOME Shell can call `activate_with_focus()` on window objects
+
+</details>

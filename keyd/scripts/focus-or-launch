@@ -1,0 +1,21 @@
+#!/bin/bash
+# focus-or-launch: Focus an existing app window or launch it if not running.
+# Uses the focus-or-launch@dotfiles GNOME Shell extension via D-Bus.
+# Works natively on GNOME Wayland (no X11 tools needed).
+#
+# Usage: focus-or-launch <desktop-file-id>
+# Example: focus-or-launch com.mitchellh.ghostty
+#          focus-or-launch firefox_firefox
+
+desktop_id="$1"
+
+if [ -z "$desktop_id" ]; then
+  echo "Usage: focus-or-launch <desktop-file-id>" >&2
+  exit 1
+fi
+
+gdbus call --session \
+  --dest org.gnome.Shell \
+  --object-path /com/dotfiles/FocusOrLaunch \
+  --method com.dotfiles.FocusOrLaunch.FocusOrLaunch \
+  "$desktop_id"

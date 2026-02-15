@@ -1,0 +1,7 @@
+{
+  "uuid": "focus-or-launch@dotfiles",
+  "name": "Focus or Launch",
+  "description": "D-Bus service to focus an existing app window or launch it if not running",
+  "shell-version": ["46"],
+  "version": 1
+}
