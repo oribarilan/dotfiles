@@ -49,11 +49,13 @@ eval "$(pyenv init - --no-rehash)"
 
 # direnv
 # activate direnv (auto load and unload .envrc files in directories)
-eval "$(direnv hook zsh)"
-# Force export on startup for tmux/sesh workflow: new tmux panes inherit the current directory
-# but direnv normally only triggers on 'cd'. Without this, you'd need to run 'cd .' in each new
-# pane to activate the .envrc. Only runs if .envrc exists (optimization to save ~10ms otherwise).
-[[ -f .envrc ]] && direnv export zsh > /dev/null
+if command -v direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+  # Force export on startup for tmux/sesh workflow: new tmux panes inherit the current directory
+  # but direnv normally only triggers on 'cd'. Without this, you'd need to run 'cd .' in each new
+  # pane to activate the .envrc. Only runs if .envrc exists (optimization to save ~10ms otherwise).
+  [[ -f .envrc ]] && direnv export zsh > /dev/null 2>&1
+fi
 
 # yazi config
 export YAZI_CONFIG_HOME=~/.config/dotfiles/yazi/

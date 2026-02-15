@@ -30,7 +30,6 @@ zle-line-init() {
   echo -ne '\e[6 q'
 }
 zle -N zle-line-init
-echo -ne '\e[6 q' # Use beam shape cursor on startup
 
 # Yank to the system clipboard
 function vi-yank-xclip {
