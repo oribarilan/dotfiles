@@ -1,5 +1,10 @@
 # first time should first run `zsh setup.zsh` to set up the environment
 
+# auto-start tmux for interactive shells
+if command -v tmux &>/dev/null && [[ -z "$TMUX" && $- == *i* && -z "$NO_TMUX" ]]; then
+  exec tmux new-session
+fi
+
 # use `ZSH_PROF=1 zsh` to debug load times
 if [[ $ZSH_PROF == 1 ]]; then
   zmodload zsh/zprof
