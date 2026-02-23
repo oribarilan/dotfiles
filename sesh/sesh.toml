@@ -89,6 +89,11 @@ path = "~/repos/personal/solopad/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
 [[session]]
+name = "bee"
+path = "~/repos/personal/bee/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
 name = "duz"
 path = "~/repos/personal/cito/"
 startup_command = 'tmux send-keys -t 0 "opencode" C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 1 "opencode" C-m \; send-keys -t 2 "lazygit" C-m'
