@@ -53,19 +53,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Auto-reload files when they change on disk
 vim.o.autoread = true
 
-vim.api.nvim_create_autocmd(
-  { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
-  {
-    pattern = "*",
-    command = "if mode() != 'c' | silent! checktime | endif"
-  }
-)
-
-vim.api.nvim_create_autocmd("FileChangedShellPost", {
-  pattern = "*",
-  command = 'echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None'
-})
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
