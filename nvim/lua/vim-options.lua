@@ -83,6 +83,12 @@ vim.o.scrolloff = 20
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- auto-reload buffers when files change on disk (e.g. switching back from coding agent tmux pane)
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
+  group = vim.api.nvim_create_augroup('auto_reload', {}),
+  callback = function() vim.cmd 'checktime' end,
+})
+
 -- no auto continue comments on new line
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("no_auto_comment", {}),
