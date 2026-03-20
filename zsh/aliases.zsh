@@ -1,5 +1,7 @@
 alias n='nvim'
 alias oc='opencode'
+alias oct='export OPENCODE_PORT=4096 && opencode --port 4096' # omo-slim tmux integration
+alias c='copilot'
 alias lg='lazygit'
 alias tkill='tmux ls | grep -E "^[0-9]+:" | cut -d: -f1 | xargs -n1 tmux kill-session -t'
 alias tattach='tmux attach-session -t "$(tmux ls | awk -F: '\''!($1 ~ /^[0-9]+$/) {print $1}'\'' | fzf)"'

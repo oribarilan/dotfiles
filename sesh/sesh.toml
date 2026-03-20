@@ -49,7 +49,7 @@ path = "~/repos/personal/hippo/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
 [[session]]
-name = "vault-demo"
+name = "brain"
 path = "~/repos/personal/vault-demo/"
 startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
@@ -97,6 +97,11 @@ startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-
 name = "duz"
 path = "~/repos/personal/cito/"
 startup_command = 'tmux send-keys -t 0 "opencode" C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 1 "opencode" C-m \; send-keys -t 2 "lazygit" C-m'
+
+[[session]]
+name = "Personal-Ori"
+path = "~/repos/mde/Personal.Ori/"
+startup_command = 'tmux send-keys -t 0 "nvim ." C-m \; split-window -h \; split-window -v -t 1 \; send-keys -t 2 "lazygit" C-m'
 
 [[session]]
 name = "blunder"
