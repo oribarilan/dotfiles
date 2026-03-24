@@ -3,6 +3,9 @@
   "model": "github-copilot/claude-opus-4.6",
   "share": "disabled",
   "lsp": {
+    "rust": {
+      "disabled": true
+    },
     "pyright": {
       "command": [
         "npx",
