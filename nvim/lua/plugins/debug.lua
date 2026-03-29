@@ -1,6 +1,17 @@
 -- debug.lua
 -- Language-agnostic DAP configuration that loads language-specific setups
 
+local function stop_debug_session()
+  local dap = require 'dap'
+  if not dap.session() then
+    vim.notify('No active debug session', vim.log.levels.INFO)
+    return
+  end
+
+  pcall(dap.terminate)
+  pcall(dap.disconnect)
+end
+
 return {
   'mfussenegger/nvim-dap',
   dependencies = {
@@ -29,7 +40,31 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
+      '<leader>dd',
+      function()
+        require('dap').continue()
+      end,
+      desc = 'Debug: Start/Continue',
+    },
+    {
+      '<M-q>',
+      stop_debug_session,
+      desc = 'Debug: Stop/Terminate',
+    },
+    {
+      '<leader>dq',
+      stop_debug_session,
+      desc = 'Debug: Stop/Terminate',
+    },
+    {
       '<M-l>',
+      function()
+        require('dap').step_into()
+      end,
+      desc = 'Debug: Step Into',
+    },
+    {
+      '<leader>dl',
       function()
         require('dap').step_into()
       end,
@@ -43,7 +78,21 @@ return {
       desc = 'Debug: Step Over',
     },
     {
+      '<leader>dj',
+      function()
+        require('dap').step_over()
+      end,
+      desc = 'Debug: Step Over',
+    },
+    {
       '<M-h>',
+      function()
+        require('dap').step_out()
+      end,
+      desc = 'Debug: Step Out',
+    },
+    {
+      '<leader>dh',
       function()
         require('dap').step_out()
       end,
@@ -57,7 +106,21 @@ return {
       desc = 'Debug: Toggle Breakpoint',
     },
     {
+      '<leader>db',
+      function()
+        require('dap').toggle_breakpoint()
+      end,
+      desc = 'Debug: Toggle Breakpoint',
+    },
+    {
       '<M-B>',
+      function()
+        require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
+      end,
+      desc = 'Debug: Set Conditional Breakpoint',
+    },
+    {
+      '<leader>dB',
       function()
         require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
       end,
@@ -71,7 +134,41 @@ return {
       desc = 'Debug: See last session result.',
     },
     {
+      '<leader>do',
+      function()
+        require('dapui').toggle()
+      end,
+      desc = 'Debug: See last session result.',
+    },
+    {
       '<M-r>',
+      function()
+        local cwd = vim.fn.getcwd()
+        vim.notify('Building .NET project...', vim.log.levels.INFO)
+        vim.fn.jobstart({'dotnet', 'build', '--configuration', 'Debug'}, {
+          cwd = cwd,
+          on_exit = function(_, exit_code)
+            if exit_code == 0 then
+              vim.notify('Build successful!', vim.log.levels.INFO)
+            else
+              vim.notify('Build failed!', vim.log.levels.ERROR)
+            end
+          end,
+          on_stdout = function(_, data)
+            if data and #data > 0 then
+              for _, line in ipairs(data) do
+                if line ~= '' then
+                  print(line)
+                end
+              end
+            end
+          end,
+        })
+      end,
+      desc = 'Debug: Build .NET project',
+    },
+    {
+      '<leader>dr',
       function()
         local cwd = vim.fn.getcwd()
         vim.notify('Building .NET project...', vim.log.levels.INFO)

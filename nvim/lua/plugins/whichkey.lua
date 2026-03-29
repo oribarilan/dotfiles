@@ -51,6 +51,16 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
+      { '<leader>d', group = '[D]ebug' },
+      { '<leader>dd', desc = 'Debug: Start/Continue' },
+      { '<leader>dq', desc = 'Debug: Stop/Terminate' },
+      { '<leader>dl', desc = 'Debug: Step Into' },
+      { '<leader>dj', desc = 'Debug: Step Over' },
+      { '<leader>dh', desc = 'Debug: Step Out' },
+      { '<leader>db', desc = 'Debug: Toggle Breakpoint' },
+      { '<leader>dB', desc = 'Debug: Set Conditional Breakpoint' },
+      { '<leader>do', desc = 'Debug: Toggle DAP UI' },
+      { '<leader>dr', desc = 'Debug: Build .NET project' },
       { '<leader>s', group = '[S]earch' },
       { '<leader>t', group = '[T]est' },
       { '<leader>u', group = '[U]tility' },
