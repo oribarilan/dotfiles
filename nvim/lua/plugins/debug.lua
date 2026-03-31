@@ -3,13 +3,11 @@
 
 local function stop_debug_session()
   local dap = require 'dap'
-  if not dap.session() then
-    vim.notify('No active debug session', vim.log.levels.INFO)
-    return
+  if dap.session() then
+    pcall(dap.terminate)
+    pcall(dap.disconnect)
   end
-
-  pcall(dap.terminate)
-  pcall(dap.disconnect)
+  require('dapui').close()
 end
 
 return {
