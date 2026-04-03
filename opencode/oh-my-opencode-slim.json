@@ -1,15 +1,15 @@
 {
   "preset": "copilot",
   "tmux": {
-    "enabled": true,
+    "enabled": false,
     "layout": "main-vertical",
     "main_pane_size": 60
   },
   "presets": {
     "copilot": {
       "orchestrator": {
-        "model": "github-copilot/gpt-5.3-codex",
-        "variant": "xhigh",
+        "model": "github-copilot/claude-opus-4.6-1m",
+        "variant": "high",
         "skills": [
           "*"
         ],
@@ -18,13 +18,13 @@
         ]
       },
       "oracle": {
-        "model": "github-copilot/claude-opus-4.6",
+        "model": "github-copilot/claude-opus-4.6-1m",
         "variant": "high",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "github-copilot/claude-opus-4.6",
+        "model": "github-copilot/claude-opus-4.6-1m",
         "variant": "high",
         "skills": [],
         "mcps": [
@@ -34,13 +34,13 @@
         ]
       },
       "explorer": {
-        "model": "github-copilot/claude-sonnet-4.6",
-        "variant": "medium",
+        "model": "github-copilot/claude-opus-4.6-1m",
+        "variant": "high",
         "skills": [],
         "mcps": []
       },
       "designer": {
-        "model": "github-copilot/claude-opus-4.6",
+        "model": "github-copilot/claude-opus-4.6-1m",
         "variant": "high",
         "skills": [
           "agent-browser"
@@ -48,7 +48,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "github-copilot/claude-sonnet-4.6",
+        "model": "github-copilot/claude-opus-4.6-1m",
         "variant": "high",
         "skills": [],
         "mcps": []
