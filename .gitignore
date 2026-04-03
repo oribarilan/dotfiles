@@ -1,2 +1,4 @@
 .env
 opencode/superpowers/
+pi/sessions/
+pi/auth.json

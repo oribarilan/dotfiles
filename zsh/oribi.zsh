@@ -15,6 +15,7 @@ export EDITOR=nvim
 export OPENCODE_CONFIG="${HOME}/.config/dotfiles/opencode/opencode.jsonc"
 export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
 export PRESENTERM_CONFIG_FILE="${HOME}/.config/dotfiles/presenterm/config.yaml"
+export PI_CODING_AGENT_DIR="${HOME}/.config/dotfiles/pi"
 export PATH="$PATH:/Users/orbarila/go/bin"
 # end - basic setup
 
