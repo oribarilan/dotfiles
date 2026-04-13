@@ -1,5 +1,19 @@
 return {
   'hkupty/iron.nvim',
+  cmd = { 'IronRepl', 'IronRestart', 'IronFocus', 'IronHide' },
+  keys = {
+    { '<leader>it', desc = 'Toggle Iron REPL' },
+    { '<leader>isc', desc = 'Iron send motion', mode = { 'n', 'v' } },
+    { '<leader>isf', desc = 'Iron send file' },
+    { '<leader>isl', desc = 'Iron send line' },
+    { '<leader>ism', desc = 'Iron send mark' },
+    { '<leader>imc', desc = 'Iron mark motion', mode = { 'n', 'v' } },
+    { '<leader>imd', desc = 'Iron remove mark' },
+    { '<leader>ii', desc = 'Iron interrupt' },
+    { '<leader>isq', desc = 'Iron exit' },
+    { '<leader>icl', desc = 'Iron clear' },
+    { '<space>isb', desc = 'Iron send code block' },
+  },
   config = function()
     require('iron.core').setup {
       config = {

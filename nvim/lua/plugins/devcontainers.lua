@@ -3,7 +3,7 @@ return {
   -- dev
   dir = '~/repos/personal/devcontainers.nvim',
   dev = true, -- Enables development mode
-  -- event = 'LspAttach',
+  event = 'VeryLazy',
   config = function()
     require('devcontainers').setup {
       dev_path = '~/repos/personal/devcontainers.nvim',
