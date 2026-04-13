@@ -1,7 +1,7 @@
 # first time should first run `zsh setup.zsh` to set up the environment
 
 # auto-start tmux for interactive shells
-if command -v tmux &>/dev/null && [[ -z "$TMUX" && $- == *i* && -z "$NO_TMUX" ]]; then
+if command -v tmux &>/dev/null && [[ "$TERM_PROGRAM" == "ghostty" && -z "$TMUX" && $- == *i* ]]; then
   exec tmux new-session
 fi
 
