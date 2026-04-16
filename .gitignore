@@ -1,4 +1,6 @@
 .env
+**/.DS_Store
+*.bak
 opencode/superpowers/
 pi/sessions/
 pi/auth.json

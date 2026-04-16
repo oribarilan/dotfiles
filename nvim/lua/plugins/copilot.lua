@@ -1,5 +1,6 @@
 return {
   'github/copilot.vim',
+  event = 'InsertEnter',
   config = function()
     -- Set Copilot ghost text highlight
     vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
