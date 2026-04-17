@@ -26,7 +26,7 @@ source "${0:A:h}/vi_mode.zsh"
 
 # auto-name unnamed tmux sessions based on CWD
 _auto_name_tmux_session() { ~/.config/dotfiles/tmux/scripts/auto-name-session.sh }
-chpwd_functions+=(_auto_name_tmux_session)
+chpwd_functions=(${chpwd_functions:#_auto_name_tmux_session} _auto_name_tmux_session)
 
 if [[ $ZSH_PROF == 1 ]]; then
   zprof

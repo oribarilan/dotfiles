@@ -28,6 +28,6 @@ zi() {
 }
 
 # alias to re-source oribi.zsh
-alias resource='source "${HOME}/.config/dotfiles/zsh/oribi.zsh" && echo "[oribi.zsh reloaded]"'
+alias resource='source "${HOME}/.config/dotfiles/zsh/oribi.zsh" && tmux source-file ~/.tmux.conf 2>/dev/null; echo "[zsh + tmux reloaded]"'
 # alias to update opencode via brew
 alias opencode-update='brew update && brew upgrade opencode && brew cleanup opencode'
