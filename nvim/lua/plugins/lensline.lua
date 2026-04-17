@@ -1,24 +1,29 @@
 return {
 
-  -- dev multi
+  -- dev: per-highlight feature testing
   -- dir = '~/repos/personal/lensline.nvim',
-  -- dev = true, -- Enables development mode
+  -- dev = true,
   -- event = 'LspAttach',
   -- config = function()
   --   require('lensline').setup {
   --     profiles = {
   --       {
-  --         name = 'minimal',
+  --         name = 'per-highlight-demo',
+  --         providers = {
+  --           { name = 'usages', enabled = true, highlight = 'Function' },
+  --           { name = 'last_author', enabled = true, highlight = 'String' },
+  --         },
   --         style = {
   --           placement = 'inline',
   --           prefix = '',
+  --           highlight = 'Comment',
   --         },
   --       },
   --     },
   --     debug_mode = true,
   --     limits = {
-  --       exclude = {}, -- use gitignore instead
-  --     }
+  --       exclude = {},
+  --     },
   --   }
   -- end,
 
@@ -30,10 +35,15 @@ return {
     require('lensline').setup {
       profiles = {
         {
-          name = 'minimal',
+          name = 'per-highlight-demo',
+          providers = {
+            { name = 'usages', enabled = true, highlight = 'Function' },
+            { name = 'last_author', enabled = true, highlight = 'String' },
+          },
           style = {
             placement = 'inline',
             prefix = '',
+            highlight = 'Comment',
           },
         },
       },
