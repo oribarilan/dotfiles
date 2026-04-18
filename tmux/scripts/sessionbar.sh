@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Sessionbar — renders session pills with positional indices for the tmux status line.
-# Called via hooks (event-driven). Indices match Alt+1..9 navigation order.
+# Called via hooks (event-driven). Reads custom order from session-order.sh.
 #
 # Catppuccin mocha palette:
 #   mantle=#181825  crust=#11111b  mauve=#cba6f7  overlay_2=#9399b2
@@ -8,7 +8,7 @@
 current=$(tmux display-message -p '#{client_session}')
 
 idx=0
-tmux list-sessions -F '#{session_name}' 2>/dev/null | while read -r session; do
+~/.config/dotfiles/tmux/scripts/session-order.sh get | while IFS= read -r session; do
   idx=$((idx + 1))
 
   if [ "$session" = "$current" ]; then

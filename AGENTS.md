@@ -73,7 +73,7 @@ When adding a new Hyper+key hotkey for an app:
 - **Escape `#` in `run-shell` commands.** Tmux expands `#S`, `#W`, etc. before passing to the shell. Use `##S` to get a literal `#S`.
 - **Avoid root-table (`bind -n`) keys that conflict with ANSI escape sequences.** `M-[` is `ESC [` — the CSI introducer used by every colored terminal output. Never bind it.
 - **Post-TPM overrides** go in `status.conf` (sourced after `run '~/.tmux/plugins/tpm/tpm'`). Catppuccin and other plugins overwrite settings set before TPM runs.
-- **Sessionbar** (`tmux/status.conf`): Custom status line that shows sessions as navigable pills instead of windows. Sessions are the primary navigation unit (each has 1 window with multi-pane splits). Keybindings: `Alt+,`/`.` prev/next, `Alt+1..9` jump, `Alt+n` new, `Alt+q` kill. Mouse click on pills also works.
+- **Sessionbar** (`tmux/status.conf`): Custom status line that shows sessions as navigable pills instead of windows. Sessions are the primary navigation unit (each has 1 window with multi-pane splits). Keybindings: `Alt+,`/`.` prev/next, `Alt+1..9` jump, `C-a 1..9` swap position, `Alt+n` new, `Alt+q` kill. Mouse click on pills also works. Session order is custom (stored in `@session_order` variable) and managed by `tmux/scripts/session-order.sh`.
 
 ## LSP & Tooling
 - **Python**: pyright (types only), ruff (linting/formatting/imports)
