@@ -66,6 +66,15 @@ When adding a new Hyper+key hotkey for an app:
 - **Use local functions** where possible
 - **Quote variables** to prevent word splitting
 
+### Tmux Config
+- **Config files are imperative, not declarative.** Each line is a command run against the tmux server. Removing a line from the config does NOT undo its effect on a running server.
+- **Never add `unbind` to config files** just to fix stale state from a previous reload. Configs should assume a fresh server.
+- To fix stale bindings on a running server, either restart the server (`tmux kill-server`) or run the `unbind` command ad-hoc in the terminal.
+- **Escape `#` in `run-shell` commands.** Tmux expands `#S`, `#W`, etc. before passing to the shell. Use `##S` to get a literal `#S`.
+- **Avoid root-table (`bind -n`) keys that conflict with ANSI escape sequences.** `M-[` is `ESC [` — the CSI introducer used by every colored terminal output. Never bind it.
+- **Post-TPM overrides** go in `status.conf` (sourced after `run '~/.tmux/plugins/tpm/tpm'`). Catppuccin and other plugins overwrite settings set before TPM runs.
+- **Sessionbar** (`tmux/status.conf`): Custom status line that shows sessions as navigable pills instead of windows. Sessions are the primary navigation unit (each has 1 window with multi-pane splits). Keybindings: `Alt+,`/`.` prev/next, `Alt+1..9` jump, `Alt+n` new, `Alt+q` kill. Mouse click on pills also works.
+
 ## LSP & Tooling
 - **Python**: pyright (types only), ruff (linting/formatting/imports)
 - **Lua**: lua_ls, stylua
