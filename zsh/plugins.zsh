@@ -23,6 +23,8 @@ zlight zsh-users/zsh-completions
 # this must happen before plugins that wrap widgets (e.g., zsh-autosuggestions, fast-syntax-highlighting)
 # completions must happen before this
 autoload -Uz compinit
+# add any extra completion paths before compinit
+[[ -d "$HOME/.zsh/completions" ]] && fpath=("$HOME/.zsh/completions" $fpath)
 # only rebuild compinit cache once per day - optimization to speed up zsh startup
 if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
   compinit
