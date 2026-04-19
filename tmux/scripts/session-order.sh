@@ -3,33 +3,8 @@
 # Order is stored in tmux variable @session_order (comma-separated session names).
 #
 # Usage:
-#   session-order.sh get       — prints ordered session names, one per line
 #   session-order.sh sort      — reorder by most recently used, refreshes sessionbar
-
-get_order() {
-  local saved actual
-  saved=$(tmux show-option -gqv @session_order)
-  actual=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
-
-  if [ -z "$saved" ]; then
-    tmux set -g @session_order "$(echo "$actual" | tr '\n' ',' | sed 's/,$//')"
-    echo "$actual"
-    return
-  fi
-
-  # Build ordered list: saved entries that still exist, then any new sessions
-  local result=()
-  while IFS= read -r s; do
-    echo "$actual" | grep -qxF "$s" && result+=("$s")
-  done <<< "$(echo "$saved" | tr ',' '\n')"
-
-  while IFS= read -r s; do
-    echo "$saved" | tr ',' '\n' | grep -qxF "$s" || result+=("$s")
-  done <<< "$actual"
-
-  tmux set -g @session_order "$(IFS=','; echo "${result[*]}")"
-  printf '%s\n' "${result[@]}"
-}
+#   session-order.sh next/prev — navigate to next/prev session in custom order
 
 sort_by_recency() {
   local sorted
@@ -45,8 +20,13 @@ navigate() {
   local current
   current=$(tmux display-message -p '#{session_name}')
 
+  # Read directly from cached variable (fast path — no validation)
+  local saved
+  saved=$(tmux show-option -gqv @session_order)
+  [ -z "$saved" ] && return
+
   local -a arr=()
-  while IFS= read -r s; do arr+=("$s"); done <<< "$(get_order)"
+  while IFS= read -r s; do arr+=("$s"); done <<< "$(echo "$saved" | tr ',' '\n')"
 
   local total=${#arr[@]}
   [ "$total" -le 1 ] && return
@@ -70,9 +50,8 @@ navigate() {
 }
 
 case "$1" in
-  get)  get_order ;;
   sort) sort_by_recency ;;
   next) navigate next ;;
   prev) navigate prev ;;
-  *)    echo "Usage: $0 {get|sort|next|prev}" >&2; exit 1 ;;
+  *)    echo "Usage: $0 {sort|next|prev}" >&2; exit 1 ;;
 esac
