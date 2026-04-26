@@ -31,3 +31,12 @@ zi() {
 alias resource='source "${HOME}/.config/dotfiles/zsh/oribi.zsh" && tmux source-file ~/.tmux.conf 2>/dev/null; echo "[zsh + tmux reloaded]"'
 # alias to update opencode via brew
 alias opencode-update='brew update && brew upgrade opencode && brew cleanup opencode'
+
+# Quick inline question to opencode (no TUI)
+q() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: q <question>"
+    return 1
+  fi
+  opencode run "$*"
+}
