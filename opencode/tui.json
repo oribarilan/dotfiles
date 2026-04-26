@@ -3,7 +3,7 @@
   "theme": "nord",
   "keybinds": {
     "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d",
+    "messages_half_page_down": "ctrl+d,ctrl+f",
     "input_newline": "shift+enter",
     "input_submit": "enter",
     "session_child_cycle": "<leader>+right,<leader>l",
