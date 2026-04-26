@@ -20,16 +20,24 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
   // Track child session IDs so we only act on root session status changes
   const childSessions = new Set<string>()
 
-  async function setTmuxState(busy: boolean): Promise<void> {
+  // In-memory state: idle | busy | attention
+  // Priority: attention > busy > idle
+  let currentState: "idle" | "busy" | "attention" = "idle"
+
+  async function setState(newState: "idle" | "busy" | "attention"): Promise<void> {
+    // Don't let busy downgrade attention — only idle or attention itself can clear it
+    if (newState === "busy" && currentState === "attention") return
+    if (newState === currentState) return
+    currentState = newState
+
     const session = await getTmuxSession()
     if (!session) return
     try {
-      if (busy) {
-        await $`tmux set -g @oc_busy_${session} 1`.quiet()
+      if (newState === "idle") {
+        await $`tmux set -gu @oc_state_${session}`.quiet()
       } else {
-        await $`tmux set -gu @oc_busy_${session}`.quiet()
+        await $`tmux set -g @oc_state_${session} ${newState}`.quiet()
       }
-      // Trigger sessionbar refresh
       await $`~/.config/dotfiles/tmux/scripts/refresh-sessionbar.sh`.quiet()
     } catch {
       // Silently ignore — don't break opencode if tmux commands fail
@@ -51,7 +59,7 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
       if (event.type === "session.idle") {
         const props = (event as any).properties
         if (!childSessions.has(props.sessionID)) {
-          await setTmuxState(false)
+          await setState("idle")
         }
         return
       }
@@ -63,11 +71,40 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
 
         const statusType = props.status?.type
         if (statusType === "busy") {
-          await setTmuxState(true)
+          await setState("busy")
         } else if (statusType === "idle") {
-          await setTmuxState(false)
+          await setState("idle")
         }
-        // "retry" — keep showing busy (agent is retrying, still working)
+        // "retry" — keep showing busy
+        return
+      }
+
+      // Permission requested — needs user attention (any session, including sub-agents)
+      if (event.type === "permission.asked" || event.type === "permission.updated") {
+        await setState("attention")
+        return
+      }
+
+      // Permission answered — back to busy
+      if (event.type === "permission.replied") {
+        currentState = "busy" // Reset without priority check
+        await setState("busy")
+        return
+      }
+    },
+
+    // Question tool invoked — needs user attention
+    "tool.execute.before": async (input) => {
+      if (input.tool === "question") {
+        await setState("attention")
+      }
+    },
+
+    // Question tool answered — back to busy
+    "tool.execute.after": async (input) => {
+      if (input.tool === "question") {
+        currentState = "busy" // Reset without priority check
+        await setState("busy")
       }
     },
   }
