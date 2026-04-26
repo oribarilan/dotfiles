@@ -1,0 +1,5 @@
+{
+  "name": "tmux-state",
+  "version": "1.0.0",
+  "description": "Pushes Copilot CLI agent state (busy/idle/attention) into tmux variables for the sessionbar"
+}

@@ -57,19 +57,24 @@ To add a new agent: write a plugin/script that sets this variable on state trans
 
 ## Copilot CLI Harness
 
-**Implementation:** `copilot/extensions/tmux-state/extension.mjs` — a Copilot CLI extension using the SDK ([docs](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins)).
+**Implementation:** `copilot/plugins/tmux-state/` — a Copilot CLI plugin using the hooks system ([docs](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-hooks)).
 
 **How it detects state:**
-- `assistant.turn_start` / `tool.execution_start` events → busy
-- `session.idle` event → idle
-- `permission.requested` event → attention
-- `session.shutdown` event → cleanup (unset variable)
+- `userPromptSubmitted` hook → busy
+- `preToolUse` hook (when `toolName == "ask_user"`) → attention
+- `postToolUse` hook (when `toolName == "ask_user"`) → back to busy
+- `agentStop` hook → idle
+- `sessionEnd` hook → cleanup (unset variable)
 
-**How it finds the tmux session:** reads `$TMUX_PANE` env var, queries tmux for the session name, caches it.
+**How it finds the tmux session:** `scripts/set-state.sh` reads `$TMUX_PANE` env var and queries tmux for the session name on each invocation.
 
-**Sub-agent filtering:** Not needed. Unlike OpenCode (where sub-agents are child sessions), Copilot CLI sub-agents run within the same session. `session.idle` only fires when everything — including sub-agents — is done.
+**Setup:** install the plugin with `copilot plugin install ~/.config/dotfiles/copilot/plugins/tmux-state`
 
-**Setup:** symlink `~/.copilot/extensions/tmux-state` → `~/.config/dotfiles/copilot/extensions/tmux-state`
+### Known gap: permission requests
+
+Copilot CLI does not expose a hook for permission prompts (e.g., "Allow bash: rm -rf dist?"). The `preToolUse` hook fires _before_ the permission dialog appears, not when it appears. As a result, the attention icon is only shown for `ask_user` questions, not for permission prompts. The agent will appear busy (green dot) while waiting for permission approval.
+
+OpenCode has full coverage via `permission.asked` / `permission.replied` events. Copilot CLI emits `permission.requested` / `permission.completed` events internally, but these are only accessible via the experimental extension SDK — not via the hooks system. If Copilot CLI adds a `permissionRequested` hook or stabilizes user-scoped extensions, this gap can be closed.
 
 ---
 

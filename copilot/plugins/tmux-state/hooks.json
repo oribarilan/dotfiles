@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "hooks": {
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "bash": "~/.config/dotfiles/copilot/plugins/tmux-state/scripts/set-state.sh busy",
+        "timeoutSec": 5
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "INPUT=$(cat); TOOL=$(echo \"$INPUT\" | jq -r '.toolName'); [ \"$TOOL\" = \"ask_user\" ] && ~/.config/dotfiles/copilot/plugins/tmux-state/scripts/set-state.sh attention; exit 0",
+        "timeoutSec": 5
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "bash": "INPUT=$(cat); TOOL=$(echo \"$INPUT\" | jq -r '.toolName'); [ \"$TOOL\" = \"ask_user\" ] && ~/.config/dotfiles/copilot/plugins/tmux-state/scripts/set-state.sh busy; exit 0",
+        "timeoutSec": 5
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "bash": "~/.config/dotfiles/copilot/plugins/tmux-state/scripts/set-state.sh idle",
+        "timeoutSec": 5
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "~/.config/dotfiles/copilot/plugins/tmux-state/scripts/set-state.sh clear",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}
