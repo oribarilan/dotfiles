@@ -47,7 +47,16 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
         return
       }
 
-      // Only react to root session status changes
+      // session.idle is a separate event from session.status
+      if (event.type === "session.idle") {
+        const props = (event as any).properties
+        if (!childSessions.has(props.sessionID)) {
+          await setTmuxState(false)
+        }
+        return
+      }
+
+      // session.status fires for busy/retry transitions
       if (event.type === "session.status") {
         const props = (event as any).properties
         if (childSessions.has(props.sessionID)) return
