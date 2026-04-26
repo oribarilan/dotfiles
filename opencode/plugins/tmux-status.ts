@@ -36,9 +36,9 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
     if (!session) return
     try {
       if (newState === "idle") {
-        await $`tmux set -gu @oc_state_${session}`.quiet()
+        await $`tmux set -gu @agent_state_${session}`.quiet()
       } else {
-        await $`tmux set -g @oc_state_${session} ${newState}`.quiet()
+        await $`tmux set -g @agent_state_${session} ${newState}`.quiet()
       }
       await $`~/.config/dotfiles/tmux/scripts/refresh-sessionbar.sh`.quiet()
     } catch {

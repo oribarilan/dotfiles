@@ -30,7 +30,7 @@ Attention > Busy > Idle. When both busy and waiting for input, show attention.
 Each agent harness pushes state into a tmux global variable per session:
 
 ```
-@oc_state_<tmux_session_name>   →  "busy" | "attention" | (unset = idle)
+@agent_state_<tmux_session_name>   →  "busy" | "attention" | (unset = idle)
 ```
 
 The sessionbar reads this variable — it doesn't know or care which agent set it.
@@ -63,6 +63,6 @@ _Not yet implemented._
 
 ## Sessionbar rendering
 
-`tmux/scripts/sessionbar.sh` reads `@oc_state_<session>` per pill and renders the appropriate icon/color. `tmux/scripts/refresh-sessionbar.sh` is the single entry point for re-rendering (called by tmux hooks, agent plugins, and `session-order.sh`).
+`tmux/scripts/sessionbar.sh` reads `@agent_state_<session>` per pill and renders the appropriate icon/color. `tmux/scripts/refresh-sessionbar.sh` is the single entry point for re-rendering (called by tmux hooks, agent plugins, and `session-order.sh`).
 
 `tmux/status.conf` includes a `pane-exited` hook that clears the state variable when no `opencode` process remains in the session.

@@ -35,15 +35,15 @@ echo "$sessions" | while IFS= read -r session; do
   idx=$((idx + 1))
 
   # Check opencode state: busy (green ●) or attention (yellow 󰂞)
-  oc_state=$(tmux show-option -gqv "@oc_state_${session}")
+  agent_state=$(tmux show-option -gqv "@agent_state_${session}")
 
   # Resolve icon and color based on state
   oc_icon=""
   oc_color=""
-  if [ "$oc_state" = "attention" ]; then
+  if [ "$agent_state" = "attention" ]; then
     oc_icon="󰂞"
     oc_color="#f9e2af"
-  elif [ "$oc_state" = "busy" ]; then
+  elif [ "$agent_state" = "busy" ]; then
     oc_icon="●"
     oc_color="#a6e3a1"
   fi
