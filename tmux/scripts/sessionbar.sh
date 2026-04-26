@@ -3,7 +3,7 @@
 # Called via hooks (event-driven). Reads custom order from @session_order variable.
 #
 # Catppuccin mocha palette:
-#   mantle=#181825  crust=#11111b  mauve=#cba6f7  overlay_2=#9399b2
+#   mantle=#181825  crust=#11111b  mauve=#cba6f7  overlay_2=#9399b2  green=#a6e3a1
 
 current=$(tmux display-message -p '#{client_session}')
 
@@ -33,17 +33,28 @@ echo "$sessions" | while IFS= read -r session; do
   echo "$actual" | grep -qxF "$session" || continue
   idx=$((idx + 1))
 
+  # Check if opencode is busy in this session
+  oc_busy=$(tmux show-option -gqv "@oc_busy_${session}")
+
   if [ "$session" = "$current" ]; then
-    # Active: grey index | mauve name
+    # Active: grey index | mauve name (with optional green dot)
     printf "#[fg=#9399b2,bg=#181825]"
     printf "#[fg=#11111b,bg=#9399b2] %s " "$idx"
     printf "#[fg=#cba6f7,bg=#9399b2]"
-    printf "#[fg=#11111b,bg=#cba6f7,bold] %s " "$session"
+    if [ -n "$oc_busy" ]; then
+      printf "#[fg=#a6e3a1,bg=#cba6f7,bold]● #[fg=#11111b,bg=#cba6f7,bold]%s " "$session"
+    else
+      printf "#[fg=#11111b,bg=#cba6f7,bold] %s " "$session"
+    fi
     printf "#[fg=#cba6f7,bg=#181825,nobold]"
   else
-    # Inactive: grey index | grey name (same color both halves)
+    # Inactive: grey pill (with optional green dot)
     printf "#[fg=#9399b2,bg=#181825]"
-    printf "#[fg=#11111b,bg=#9399b2] %s  %s " "$idx" "$session"
+    if [ -n "$oc_busy" ]; then
+      printf "#[fg=#11111b,bg=#9399b2] %s #[fg=#a6e3a1,bg=#9399b2]● #[fg=#11111b,bg=#9399b2]%s " "$idx" "$session"
+    else
+      printf "#[fg=#11111b,bg=#9399b2] %s  %s " "$idx" "$session"
+    fi
     printf "#[fg=#9399b2,bg=#181825]"
   fi
   printf "#[default,bg=#181825] "
