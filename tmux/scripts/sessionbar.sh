@@ -46,6 +46,9 @@ echo "$sessions" | while IFS= read -r session; do
   elif [ "$agent_state" = "busy" ]; then
     oc_icon="●"
     oc_color="#a6e3a1"
+  elif [ "$agent_state" = "done" ]; then
+    oc_icon="●"
+    oc_color="#585b70"
   fi
 
   if [ "$session" = "$current" ]; then

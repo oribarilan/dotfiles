@@ -18,7 +18,16 @@ case "$STATE" in
   busy|attention)
     tmux set -g "@agent_state_${SESSION}" "$STATE" 2>/dev/null
     ;;
-  idle|clear)
+  idle)
+    # If user is in another session, mark as "done" (unread indicator)
+    ACTIVE=$(tmux display-message -p '#{client_session}' 2>/dev/null)
+    if [ "$ACTIVE" = "$SESSION" ]; then
+      tmux set -gu "@agent_state_${SESSION}" 2>/dev/null
+    else
+      tmux set -g "@agent_state_${SESSION}" "done" 2>/dev/null
+    fi
+    ;;
+  clear)
     tmux set -gu "@agent_state_${SESSION}" 2>/dev/null
     ;;
 esac

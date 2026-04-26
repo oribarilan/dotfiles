@@ -36,7 +36,13 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
     if (!session) return
     try {
       if (newState === "idle") {
-        await $`tmux set -gu @agent_state_${session}`.quiet()
+        // If user is in another session, mark as "done" (unread indicator)
+        const activeSession = (await $`tmux display-message -p '#{client_session}'`.text()).trim()
+        if (activeSession === session) {
+          await $`tmux set -gu @agent_state_${session}`.quiet()
+        } else {
+          await $`tmux set -g @agent_state_${session} done`.quiet()
+        }
       } else {
         await $`tmux set -g @agent_state_${session} ${newState}`.quiet()
       }

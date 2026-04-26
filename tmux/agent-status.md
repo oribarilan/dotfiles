@@ -11,16 +11,18 @@ The sessionbar shows live status icons inside session pills when a coding agent 
 | Idle | _(none)_ | — | No agent running, or agent is waiting for user prompt |
 | Busy | `●` | Green (`#a6e3a1`) | Agent is actively working |
 | Attention | `󰂞` | Yellow (`#f9e2af`) | Agent is blocked on user input (permission or question) |
+| Done | `●` | Grey (`#585b70`) | Agent finished, user hasn't viewed the session yet |
 
 ### Priority
 
-Attention > Busy > Idle. When both busy and waiting for input, show attention.
+Attention > Busy > Done > Idle. When both busy and waiting for input, show attention.
 
 ### Behavior
 
 - Icon appears inside the session pill, before the session name
 - State changes are instant (event-driven, not polled)
-- When the agent finishes, the icon disappears
+- When the agent finishes, the icon changes to a grey dot ("unread" indicator) — unless the user is currently in that session, in which case the icon disappears
+- When the user switches to a session with a grey dot, it clears (like "mark as read")
 - When the agent asks a question or requests a permission, the bell replaces the busy dot
 - After answering, the icon returns to busy (agent continues working)
 - If the agent process crashes, stale icons are cleaned up via tmux `pane-exited` hook
@@ -30,7 +32,7 @@ Attention > Busy > Idle. When both busy and waiting for input, show attention.
 Each agent harness pushes state into a tmux global variable per session:
 
 ```
-@agent_state_<tmux_session_name>   →  "busy" | "attention" | (unset = idle)
+@agent_state_<tmux_session_name>   →  "busy" | "attention" | "done" | (unset = idle)
 ```
 
 The sessionbar reads this variable — it doesn't know or care which agent set it.
@@ -82,4 +84,6 @@ OpenCode has full coverage via `permission.asked` / `permission.replied` events.
 
 `tmux/scripts/sessionbar.sh` reads `@agent_state_<session>` per pill and renders the appropriate icon/color. `tmux/scripts/refresh-sessionbar.sh` is the single entry point for re-rendering (called by tmux hooks, agent plugins, and `session-order.sh`).
 
-`tmux/status.conf` includes a `pane-exited` hook that clears the state variable when no `opencode` or `copilot` process remains in the session.
+`tmux/status.conf` includes:
+- A `client-session-changed` hook that clears the `done` state when the user switches to a session (unread → read), then re-renders.
+- A `pane-exited` hook that clears the state variable when no `opencode` or `copilot` process remains in the session.
