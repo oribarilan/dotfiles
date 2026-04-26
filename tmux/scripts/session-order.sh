@@ -11,8 +11,7 @@ sort_by_recency() {
   sorted=$(tmux list-sessions -F '#{session_activity} #{session_name}' | sort -rn | awk '{print $2}')
 
   tmux set -g @session_order "$(echo "$sorted" | tr '\n' ',' | sed 's/,$//')"
-  tmux set -g @sessionbar "$(~/.config/dotfiles/tmux/scripts/sessionbar.sh)"
-  tmux refresh-client -S
+  ~/.config/dotfiles/tmux/scripts/refresh-sessionbar.sh
 }
 
 navigate() {

@@ -30,7 +30,7 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
         await $`tmux set -gu @oc_busy_${session}`.quiet()
       }
       // Trigger sessionbar refresh
-      await $`tmux set -g @sessionbar "$(~/.config/dotfiles/tmux/scripts/sessionbar.sh)" && tmux refresh-client -S`.quiet()
+      await $`~/.config/dotfiles/tmux/scripts/refresh-sessionbar.sh`.quiet()
     } catch {
       // Silently ignore — don't break opencode if tmux commands fail
     }
