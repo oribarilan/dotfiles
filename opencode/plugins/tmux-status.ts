@@ -24,10 +24,12 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
   // Priority: attention > busy > idle
   let currentState: "idle" | "busy" | "attention" = "idle"
 
-  async function setState(newState: "idle" | "busy" | "attention"): Promise<void> {
-    // Don't let busy downgrade attention — only idle or attention itself can clear it
-    if (newState === "busy" && currentState === "attention") return
-    if (newState === currentState) return
+  async function setState(newState: "idle" | "busy" | "attention", force = false): Promise<void> {
+    if (!force) {
+      // Don't let busy downgrade attention — only idle or attention itself can clear it
+      if (newState === "busy" && currentState === "attention") return
+      if (newState === currentState) return
+    }
     currentState = newState
 
     const session = await getTmuxSession()
@@ -87,8 +89,7 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
 
       // Permission answered — back to busy
       if (event.type === "permission.replied") {
-        currentState = "busy" // Reset without priority check
-        await setState("busy")
+        await setState("busy", true)
         return
       }
     },
@@ -103,8 +104,7 @@ export const TmuxStatus: Plugin = async ({ $ }) => {
     // Question tool answered — back to busy
     "tool.execute.after": async (input) => {
       if (input.tool === "question") {
-        currentState = "busy" // Reset without priority check
-        await setState("busy")
+        await setState("busy", true)
       }
     },
   }
