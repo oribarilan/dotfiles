@@ -57,7 +57,19 @@ To add a new agent: write a plugin/script that sets this variable on state trans
 
 ## Copilot CLI Harness
 
-_Not yet implemented._
+**Implementation:** `copilot/extensions/tmux-state/extension.mjs` — a Copilot CLI extension using the SDK ([docs](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins)).
+
+**How it detects state:**
+- `assistant.turn_start` / `tool.execution_start` events → busy
+- `session.idle` event → idle
+- `permission.requested` event → attention
+- `session.shutdown` event → cleanup (unset variable)
+
+**How it finds the tmux session:** reads `$TMUX_PANE` env var, queries tmux for the session name, caches it.
+
+**Sub-agent filtering:** Not needed. Unlike OpenCode (where sub-agents are child sessions), Copilot CLI sub-agents run within the same session. `session.idle` only fires when everything — including sub-agents — is done.
+
+**Setup:** symlink `~/.copilot/extensions/tmux-state` → `~/.config/dotfiles/copilot/extensions/tmux-state`
 
 ---
 
@@ -65,4 +77,4 @@ _Not yet implemented._
 
 `tmux/scripts/sessionbar.sh` reads `@agent_state_<session>` per pill and renders the appropriate icon/color. `tmux/scripts/refresh-sessionbar.sh` is the single entry point for re-rendering (called by tmux hooks, agent plugins, and `session-order.sh`).
 
-`tmux/status.conf` includes a `pane-exited` hook that clears the state variable when no `opencode` process remains in the session.
+`tmux/status.conf` includes a `pane-exited` hook that clears the state variable when no `opencode` or `copilot` process remains in the session.
