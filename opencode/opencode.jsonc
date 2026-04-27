@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "github-copilot/claude-opus-4.6-1m",
+  "model": "github-copilot/claude-opus-4.7-1m",
   "autoupdate": true,
   "share": "disabled",
   "lsp": false,

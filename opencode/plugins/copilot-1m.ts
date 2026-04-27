@@ -21,6 +21,24 @@ export default function (): Hooks {
             input: 900000,
           },
         };
+
+        const base47 = provider.models["claude-opus-4.7"];
+        if (base47) {
+          provider.models["claude-opus-4.7-1m"] = {
+            ...base47,
+            id: "claude-opus-4.7-1m",
+            name: "Claude Opus 4.7 (1M)",
+            api: {
+              ...base47.api,
+            },
+            limit: {
+              ...base47.limit,
+              context: 1000000,
+              input: 900000,
+            },
+          };
+        }
+
         return provider.models;
       },
     },
