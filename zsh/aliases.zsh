@@ -1,6 +1,5 @@
 alias n='nvim'
 alias oc='opencode'
-alias oct='export OPENCODE_PORT=4096 && opencode --port 4096' # omo-slim tmux integration
 alias c='copilot'
 alias lg='lazygit'
 alias tkill='tmux ls | grep -E "^[0-9]+:" | cut -d: -f1 | xargs -n1 tmux kill-session -t'
@@ -9,6 +8,8 @@ alias t='tattach'
 alias y='yazi'
 alias nvim-nightly='~/.local/share/bob/nightly/bin/nvim'
 alias pt='presenterm'
+alias cc='ANTHROPIC_BASE_URL=http://localhost:4000 ANTHROPIC_API_KEY=dummy claude'
+alias claude='cc'
 
 # Quick directory back navigation aliases
 alias ..='cd ..'
