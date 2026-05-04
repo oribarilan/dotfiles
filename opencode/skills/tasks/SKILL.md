@@ -17,14 +17,34 @@ A structured backlog system using markdown files in `.todo/`. Tasks belong to ei
 │   └── <task-name>.md
 ├── US-<story-name>/                  # User story
 │   ├── main.md                       # Story overview, priorities, cross-cutting concerns
-│   └── <task-name>.md                # Task within the story
+│   ├── 1-<task-name>.md              # Optional numeric prefix = execution step
+│   ├── 2-<task-name>.md
+│   └── <task-name>.md                # Unprefixed = no enforced order
 └── done/                             # Completed tasks (mirrors source structure)
     ├── backlog/
     │   └── <task-name>.md
     └── US-<story-name>/
         ├── main.md                   # Moved here when story is finalized
-        └── <task-name>.md
+        └── <task-name>.md            # Prefix is preserved if it had one
 ```
+
+### Numeric Step Prefixes (optional)
+
+When tasks in a user story have a **real sequential dependency** (task 2 cannot start until task 1 ships), prefix the filename with the step number:
+
+```
+US-eval/
+├── main.md
+├── 1-setup-dataset.md
+├── 2-run-baseline.md
+└── 3-add-metrics.md
+```
+
+**Rules:**
+- **Optional**: only use prefixes when ordering is meaningful. Independent / parallelizable tasks stay unprefixed.
+- **Filename wins**: when prefixes exist, they are the source of truth for execution order. The `Task Priority` section in `main.md` becomes optional (or can omit prefixed tasks and only list unprefixed ones).
+- **Don't fake order**: do not add prefixes just to impose arbitrary ordering on independent tasks.
+- **Mixed is fine**: a story can have both prefixed (sequential) and unprefixed (independent) tasks side by side.
 
 ## User Stories
 
@@ -77,16 +97,37 @@ Then **stop and ask the user** to refine the criteria into something testable. S
 ## Picking a Task
 
 - **Backlog:** choose any `.todo/backlog/*.md` file
-- **User story:** check `main.md` for priority order, then pick accordingly
+- **User story:**
+  - If tasks use numeric prefixes (`1-foo.md`, `2-bar.md`), execute them in numeric order — earlier steps must be done before later ones
+  - For unprefixed tasks, check `main.md` for priority order
+  - A story may mix both — finish the prefixed sequence as required, pick unprefixed tasks per `main.md` guidance
 - Respect dependencies between tasks
 - Tasks are independent deliverables — each must ship value on its own
+
+## Task Housekeeping (non-negotiable)
+
+Tasks are the source of truth for what's in flight, what's done, and why. **Stale task files are a bug.** Every time you touch a task, you owe it housekeeping:
+
+- **Tick checkboxes** as criteria are met — never leave a verified criterion unchecked
+- **Update the task file** with discoveries: revised criteria, new constraints, decisions made, files touched, follow-ups
+- **Record deviations**: if you diverged from the original plan, write down what you actually did and why
+- **Move on completion**: a task is not done until the file lives in `.todo/done/` (see [Completing a Task](#completing-a-task))
+- **Finalize stories**: when the last task in a `US-<story>/` ships, verify story-level DoD and move `main.md` too
+
+**Before ending any session that touched a task**, do a housekeeping pass:
+1. Are all completed criteria checked?
+2. Is the task file's current state accurate (notes, deviations, follow-ups recorded)?
+3. Are completed tasks moved to `.todo/done/`?
+4. Are emptied user stories finalized?
+
+If the answer to any of these is "no" and the work is actually done, fix it before stopping.
 
 ## Working a Task
 
 1. **Verify the definition of done is testable** before writing any code. If not, ask the user to clarify.
-2. Mark acceptance criteria checkboxes as you complete them
-3. Add notes to the task file if you discover important context
-4. Keep the task file updated with progress
+2. Mark acceptance criteria checkboxes as you complete them — in the same edit batch as the work that satisfies them, not "later"
+3. Add notes to the task file as you discover important context, decisions, or deviations from the original plan
+4. Keep the task file updated with progress — it should accurately reflect reality at all times, not just at the end
 
 ## Completing a Task
 
@@ -110,7 +151,11 @@ When automated tests are impossible, irrelevant, or the user declines:
 
 **Never skip verification.** "I wrote the code so it should work" is not verification. You must have **evidence**, not assumptions.
 
-When **all** acceptance criteria are verified, move the file to `.todo/done/`, preserving the source structure:
+When **all** acceptance criteria are verified:
+
+1. **Tick every checkbox** in the task file
+2. **Update the file** with anything that changed during execution: actual approach taken, deviations, follow-ups, files touched, decisions made
+3. **Move the file** to `.todo/done/`, preserving the source structure
 
 ```bash
 # Backlog task
@@ -120,7 +165,7 @@ mkdir -p .todo/done/backlog && mv .todo/backlog/<task>.md .todo/done/backlog/
 mkdir -p .todo/done/US-<story>/ && mv .todo/US-<story>/<task>.md .todo/done/US-<story>/
 ```
 
-**This is not optional.** A task is not complete until the file is moved.
+**This is not optional.** A task is not complete until the file is updated to reflect final reality **and** moved to `.todo/done/`. Leaving a finished task in its source directory — or moving it without updating checkboxes/notes — is a housekeeping bug.
 
 ### Finalizing a User Story
 
@@ -154,8 +199,9 @@ When creating related tasks that form a coherent feature or initiative:
 ```
 .todo/US-<story-name>/
 ├── main.md                # Required: overview, priorities, cross-cutting concerns
-├── <task-name>.md
-└── <task-name>.md
+├── 1-<task-name>.md       # Optional: prefix when tasks have a sequential dependency
+├── 2-<task-name>.md
+└── <task-name>.md         # Unprefixed: independent / parallelizable
 ```
 
 **When to use user stories:**
@@ -163,7 +209,7 @@ When creating related tasks that form a coherent feature or initiative:
 - Tasks that share significant context
 - Work that benefits from shared prioritization and cross-cutting notes
 
-**Naming:** use kebab-case for story and task names (e.g., `US-eval`, `setup-monorepo.md`)
+**Naming:** use kebab-case for story and task names (e.g., `US-eval`, `setup-monorepo.md`). Optionally prefix with a step number (`1-setup-monorepo.md`) when tasks must run in order — see [Numeric Step Prefixes](#numeric-step-prefixes-optional).
 
 ### Task Template
 
@@ -210,6 +256,8 @@ How to verify the **entire story** is complete — the end-to-end outcome, not j
 ## Task Priority
 1. `<task-name>.md` — why first
 2. `<task-name>.md` — why second
+
+> If tasks use numeric filename prefixes (`1-foo.md`, `2-bar.md`), the filename is the source of truth for order — this section becomes optional and may be omitted, or used only for unprefixed tasks.
 
 ## Cross-Cutting Concerns
 - Decisions, constraints, or patterns that apply across tasks

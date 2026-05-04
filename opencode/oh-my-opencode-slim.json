@@ -54,5 +54,31 @@
         "mcps": []
       }
     }
+  },
+  "council": {
+    "master": {
+      "model": "github-copilot/claude-opus-4.7-xhigh",
+      "prompt": "Synthesize councillors into a single decisive recommendation. Surface meaningful disagreements explicitly; do not paper over them."
+    },
+    "master_fallback": ["github-copilot/claude-opus-4.7-high", "github-copilot/claude-opus-4.7-1m-internal"],
+    "default_preset": "default",
+    "presets": {
+      "default": {
+        "claude":       { "model": "github-copilot/claude-opus-4.7-1m-internal" },
+        "gpt":          { "model": "github-copilot/gpt-5.5" },
+        "gemini":       { "model": "github-copilot/gemini-3.1-pro-preview" },
+        "simplifier":   {
+          "model": "github-copilot/claude-opus-4.7-1m-internal",
+          "prompt": "You are the SIMPLIFIER. Strip the problem to its essentials. Apply YAGNI and Occam's razor aggressively. Identify what can be removed, deferred, or done with the smallest viable solution. Push back on unnecessary abstractions, premature optimization, and speculative requirements. Bias hard toward the simplest thing that could possibly work."
+        },
+        "contrarian":   {
+          "model": "github-copilot/claude-opus-4.7-1m-internal",
+          "prompt": "You are the CONTRARIAN. Your job is to challenge the obvious answer, not to be agreeable. Steelman the opposite position. Identify hidden assumptions, failure modes, second-order consequences, and edge cases the consensus is likely to miss. If everyone would say X, argue seriously for not-X. Be intellectually honest, not contrarian for its own sake — but err strongly toward dissent."
+        }
+      }
+    },
+    "master_timeout": 300000,
+    "councillors_timeout": 180000,
+    "councillor_retries": 3
   }
 }

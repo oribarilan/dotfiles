@@ -37,7 +37,7 @@
     }
   },
   "plugin": [
-    "file:///Users/orbarila/repos/opensource/oh-my-opencode-slim"
+    "oh-my-opencode-slim"
   ],
   "agent": {
     "explore": {
