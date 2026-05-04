@@ -8,7 +8,7 @@
   "presets": {
     "copilot": {
       "orchestrator": {
-        "model": "github-copilot/claude-opus-4.7-1m",
+        "model": "github-copilot/claude-opus-4.7-1m-internal",
         "variant": "medium",
         "skills": [
           "*"
@@ -18,13 +18,13 @@
         ]
       },
       "oracle": {
-        "model": "github-copilot/claude-opus-4.7-1m",
+        "model": "github-copilot/claude-opus-4.7-1m-internal",
         "variant": "medium",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "github-copilot/claude-opus-4.7-1m",
+        "model": "github-copilot/claude-opus-4.7-1m-internal",
         "variant": "medium",
         "skills": [],
         "mcps": [
@@ -34,13 +34,13 @@
         ]
       },
       "explorer": {
-        "model": "github-copilot/claude-opus-4.7-1m",
+        "model": "github-copilot/claude-opus-4.7-1m-internal",
         "variant": "medium",
         "skills": [],
         "mcps": []
       },
       "designer": {
-        "model": "github-copilot/claude-opus-4.7-1m",
+        "model": "github-copilot/claude-opus-4.7-1m-internal",
         "variant": "medium",
         "skills": [
           "agent-browser"
@@ -48,7 +48,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "github-copilot/claude-opus-4.7-1m",
+        "model": "github-copilot/claude-opus-4.7-1m-internal",
         "variant": "medium",
         "skills": [],
         "mcps": []
