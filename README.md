@@ -308,9 +308,8 @@ Wiring (env vars in `zsh/oribi.zsh`):
 ```sh
 export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
 export COPILOT_HOME="${HOME}/.config/dotfiles/copilot"
-export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="${HOME}/.config/dotfiles/agents"
 ```
 
 - OpenCode loads `agents/AGENTS.md` via `instructions: ["/Users/orbarila/.config/dotfiles/agents/AGENTS.md"]` in `opencode/opencode.jsonc` (absolute path; relative paths silently don't resolve).
-- Copilot loads it via `copilot/copilot-instructions.md` (a symlink to `../agents/AGENTS.md`), and finds shared skills via `skillDirectories` in `copilot/settings.json`. `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` is also exported for forward compatibility.
-- A symlink `~/.copilot -> ~/.config/dotfiles/copilot` ensures shells without the env var still work.
+- Copilot loads it via `copilot/copilot-instructions.md`, a symlink to `../agents/AGENTS.md` (auto-loaded from `COPILOT_HOME` with no permission gate). Shared skills are picked up via `skillDirectories` in `copilot/settings.json`.
+- A symlink `~/.copilot -> ~/.config/dotfiles/copilot` ensures shells without `COPILOT_HOME` still work.

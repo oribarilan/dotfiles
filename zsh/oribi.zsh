@@ -18,14 +18,10 @@ fi
 export EDITOR=nvim
 export OPENCODE_CONFIG="${HOME}/.config/dotfiles/opencode/opencode.jsonc"
 export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
-# copilot - keep all state inside the dotfiles repo
+# copilot - keep all state inside the dotfiles repo. Shared agent
+# instructions are loaded via copilot/copilot-instructions.md, which is a
+# symlink to ../agents/AGENTS.md (auto-loaded from COPILOT_HOME).
 export COPILOT_HOME="${HOME}/.config/dotfiles/copilot"
-# Tells copilot where to look for shared agent instructions. Note: copilot
-# does NOT auto-inject these into the prompt — it reads them on-demand via
-# its file-read tool, which is permission-gated by cwd / trusted dirs. The
-# always-on channel is copilot/copilot-instructions.md (symlink to
-# ../agents/AGENTS.md), auto-loaded from COPILOT_HOME with no permission gate.
-export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="${HOME}/.config/dotfiles/agents"
 export PRESENTERM_CONFIG_FILE="${HOME}/.config/dotfiles/presenterm/config.yaml"
 export PI_CODING_AGENT_DIR="${HOME}/.config/dotfiles/pi"
 export PATH="$PATH:/Users/orbarila/go/bin"
