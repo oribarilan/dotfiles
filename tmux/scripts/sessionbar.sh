@@ -11,6 +11,8 @@ current=$(tmux display-message -p '#{client_session}')
 # Read order from cached variable, sync with live sessions
 saved=$(tmux show-option -gqv @session_order)
 actual=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
+# Hide quick-terminal-only sessions from the bar
+actual=$(echo "$actual" | grep -vxF 'brain-qt')
 
 if [ -n "$saved" ]; then
   # Build synced order: saved entries that still exist, then new sessions

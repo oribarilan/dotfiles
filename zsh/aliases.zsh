@@ -8,7 +8,49 @@ alias t='tattach'
 alias y='yazi'
 alias nvim-nightly='~/.local/share/bob/nightly/bin/nvim'
 alias pt='presenterm'
-alias cc='ANTHROPIC_BASE_URL=http://localhost:4000 ANTHROPIC_API_KEY=dummy claude'
+alias bk='brainkit'
+# `cc` / `claude` — run the standalone `claude` CLI against a local
+# copilot-api proxy (https://github.com/ericc-ch/copilot-api), which exposes
+# GitHub Copilot as an Anthropic-compatible API. This lets `claude` run on a
+# Copilot subscription instead of the Anthropic API.
+#
+# Note: opencode does NOT need this — it talks to Copilot natively. The proxy
+# exists purely so the standalone `claude` CLI works.
+#
+# Behavior:
+#   - Auto-launches `npx copilot-api@latest start` on default port 4141 if
+#     nothing is already listening, backgrounded with logs at
+#     ~/.local/share/copilot-api/proxy.log
+#   - Points `claude` at http://localhost:4141 with a dummy API key (real auth
+#     is handled by the proxy via your GitHub account, token cached at
+#     ~/.local/share/copilot-api/).
+#   - `command claude` bypasses the `claude=cc` alias below to avoid recursion.
+#
+# First run: device-flow auth needs a TTY, so run it interactively once:
+#     npx copilot-api@latest start
+# Approve the code in the browser, Ctrl-C, then `cc` will auto-launch from then on.
+cc() {
+  local port=4141
+  if ! lsof -iTCP:${port} -sTCP:LISTEN -n -P >/dev/null 2>&1; then
+    local log_dir="${HOME}/.local/share/copilot-api"
+    mkdir -p "${log_dir}"
+    echo "[cc] starting copilot-api proxy on :${port}..."
+    nohup npx -y copilot-api@latest start >"${log_dir}/proxy.log" 2>&1 &
+    disown
+    local i
+    for i in {1..40}; do
+      sleep 0.25
+      lsof -iTCP:${port} -sTCP:LISTEN -n -P >/dev/null 2>&1 && break
+    done
+    if ! lsof -iTCP:${port} -sTCP:LISTEN -n -P >/dev/null 2>&1; then
+      echo "[cc] proxy not ready after 10s."
+      echo "[cc] first run? auth interactively: npx copilot-api@latest start"
+      echo "[cc] log: ${log_dir}/proxy.log"
+      return 1
+    fi
+  fi
+  ANTHROPIC_BASE_URL="http://localhost:${port}" ANTHROPIC_API_KEY=dummy command claude "$@"
+}
 alias claude='cc'
 
 # Quick directory back navigation aliases

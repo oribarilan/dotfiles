@@ -2,6 +2,10 @@
 
 # auto-start tmux for interactive shells
 if command -v tmux &>/dev/null && [[ "$TERM_PROGRAM" == "ghostty" && -z "$TMUX" && $- == *i* ]]; then
+  # Ghostty quick terminal: dedicated `brain-qt` session, no status bar
+  if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
+    exec tmux new-session -A -s brain-qt -c "$HOME/repos/personal/brain" \; set status off
+  fi
   exec tmux new-session
 fi
 
