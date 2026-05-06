@@ -18,6 +18,10 @@ fi
 export EDITOR=nvim
 export OPENCODE_CONFIG="${HOME}/.config/dotfiles/opencode/opencode.jsonc"
 export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
+# copilot - keep all state inside the dotfiles repo
+export COPILOT_HOME="${HOME}/.config/dotfiles/copilot"
+# shared agent instructions (loaded by copilot in addition to its built-in lookups)
+export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="${HOME}/.config/dotfiles/agents"
 export PRESENTERM_CONFIG_FILE="${HOME}/.config/dotfiles/presenterm/config.yaml"
 export PI_CODING_AGENT_DIR="${HOME}/.config/dotfiles/pi"
 export PATH="$PATH:/Users/orbarila/go/bin"

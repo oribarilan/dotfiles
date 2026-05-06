@@ -295,3 +295,22 @@ This architecture is needed because:
 - Only code running inside GNOME Shell can call `activate_with_focus()` on window objects
 
 </details>
+
+## AI agents (opencode + copilot CLI)
+
+Shared, tool-neutral agent config lives in `agents/`:
+
+- `agents/AGENTS.md` — global instructions loaded by both tools (concise comments/docs, humanizer-polished prose).
+- `agents/skills/` — `SKILL.md` skills shared across tools (humanizer, tasks, presenterm, gsack-plan-*, etc.). `opencode/skills` is a symlink to this dir.
+
+Wiring (env vars in `zsh/oribi.zsh`):
+
+```sh
+export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
+export COPILOT_HOME="${HOME}/.config/dotfiles/copilot"
+export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="${HOME}/.config/dotfiles/agents"
+```
+
+- OpenCode loads `agents/AGENTS.md` via `instructions: ["../agents/AGENTS.md"]` in `opencode/opencode.jsonc`.
+- Copilot loads it via `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`, and finds shared skills via `skillDirectories` in `copilot/settings.json`.
+- A symlink `~/.copilot -> ~/.config/dotfiles/copilot` ensures shells without the env var still work.

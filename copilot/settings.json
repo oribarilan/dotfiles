@@ -1,0 +1,109 @@
+{
+  "logLevel": "all",
+  "renderMarkdown": true,
+  "skillDirectories": [
+    "/Users/orbarila/.config/dotfiles/agents/skills"
+  ],
+  "allowedUrls": [
+    "https://models.dev",
+    "http://localhost:3000",
+    "https://v2.tauri.app"
+  ],
+  "showReasoning": true,
+  "model": "claude-opus-4.7-xhigh",
+  "experimental": true,
+  "enabledPlugins": {
+    "workiq@work-iq": true
+  },
+  "extraKnownMarketplaces": {
+    "work-iq": {
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq"
+      }
+    }
+  },
+  "lastLoggedInUser": {
+    "host": "https://github.com",
+    "login": "orbarila_microsoft"
+  },
+  "trustedFolders": [
+    "/Users/orbarila/repos/opensource/cooper",
+    "/Users/orbarila/repos/mde/OneCyber.Content/WDATP/Port.Lab",
+    "/Users/orbarila/repos/mde/OneCyber.Content/.worktrees/caliper-ui/WDATP/Port.Lab/docs",
+    "/Users/orbarila/Library/CloudStorage/OneDrive-Microsoft/sessions/port",
+    "/Users/orbarila/.config/dotfiles",
+    "/Users/orbarila/repos/personal/airlock",
+    "/Users/orbarila/repos/mde/Personal.Ori",
+    "/Users/orbarila/repos/personal/vault-demo",
+    "/Users/orbarila/repos/personal/brainkit",
+    "/Users/orbarila/repos/personal/flint",
+    "/Users/orbarila/repos/opensource/opencode",
+    "/Users/orbarila/repos/personal/cortado",
+    "/Users/orbarila/repos/personal/blunder",
+    "/Users/orbarila/repos/personal/brain/work",
+    "/Users/orbarila/.config/brainkit/onboarding",
+    "/Users/orbarila/repos/mde/MyConnect"
+  ],
+  "firstLaunchAt": "2026-03-11T00:00:00.000Z",
+  "installedPlugins": [
+    {
+      "name": "cortado",
+      "marketplace": "",
+      "version": "1.0.0",
+      "installed_at": "2026-04-05T18:10:34.301Z",
+      "enabled": true,
+      "cache_path": "/Users/orbarila/.copilot/installed-plugins/_direct/copilot",
+      "source": {
+        "source": "local",
+        "path": "./plugins/copilot"
+      }
+    },
+    {
+      "name": "workiq",
+      "marketplace": "work-iq",
+      "version": "1.0.0",
+      "installed_at": "2026-04-24T17:31:52.966Z",
+      "enabled": true,
+      "cache_path": "/Users/orbarila/.copilot/installed-plugins/work-iq/workiq"
+    },
+    {
+      "name": "tmux-state",
+      "marketplace": "",
+      "version": "1.0.0",
+      "installed_at": "2026-04-26T09:13:01.251Z",
+      "enabled": true,
+      "cache_path": "/Users/orbarila/.copilot/installed-plugins/_direct/tmux-state",
+      "source": {
+        "source": "local",
+        "path": "/Users/orbarila/.config/dotfiles/copilot/plugins/tmux-state"
+      }
+    }
+  ],
+  "sessionSync": [
+    {
+      "origin": "oribarilan/brainkit",
+      "level": "user"
+    },
+    {
+      "origin": "oribarilan/flint",
+      "level": "user"
+    },
+    {
+      "origin": "oribarilan/dotfiles",
+      "level": "user"
+    },
+    {
+      "origin": "oribarilan/brain",
+      "level": "user"
+    },
+    {
+      "origin": "DefaultCollection/WDATP/OneCyber.Content",
+      "level": "user"
+    },
+    {
+      "origin": "*",
+      "level": "user"
+    }
+  ]
+}

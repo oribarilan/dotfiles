@@ -142,6 +142,21 @@
      - Extensions: Git History, Todo Tree, Relative Goto, Settings Sync, Indent Rainbow, GitLens, Code Runner, Error Lens
 3. Lazygit (alternative: GitHub Desktop)
 
+### AI Agents (opencode + copilot CLI)
+
+Both tools are redirected at their config dirs inside this repo via env vars in `zsh/oribi.zsh` (already exported on every shell). Shared instructions and skills live in `agents/`.
+
+First-time setup on a new machine:
+
+1. Install the CLIs (`brew install opencode-ai/tap/opencode` and `brew install --cask github-copilot-cli` or per official docs).
+2. Symlink so non-zsh shells still find Copilot's home:
+   ```sh
+   ln -s ~/.config/dotfiles/copilot ~/.copilot
+   ```
+3. Open a new shell so `COPILOT_HOME`, `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`, and `OPENCODE_CONFIG_DIR` are exported.
+4. `copilot` → `/login` to authenticate (token cached at `copilot/config.json`, gitignored).
+5. `opencode` will pick up `agents/AGENTS.md` and `agents/skills/` automatically.
+
 ### Virtual Machines
 
 - [Parallels](https://www.parallels.com)
