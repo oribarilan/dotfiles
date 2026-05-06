@@ -20,10 +20,11 @@ export OPENCODE_CONFIG="${HOME}/.config/dotfiles/opencode/opencode.jsonc"
 export OPENCODE_CONFIG_DIR="${HOME}/.config/dotfiles/opencode/"
 # copilot - keep all state inside the dotfiles repo
 export COPILOT_HOME="${HOME}/.config/dotfiles/copilot"
-# shared agent instructions (loaded by copilot in addition to its built-in lookups).
-# Copilot CLI 1.0.42 does NOT auto-load AGENTS.md from this env var, so the
-# functional channel is copilot/copilot-instructions.md (symlinked to
-# ../agents/AGENTS.md). Env var stays set for forward compatibility.
+# Tells copilot where to look for shared agent instructions. Note: copilot
+# does NOT auto-inject these into the prompt — it reads them on-demand via
+# its file-read tool, which is permission-gated by cwd / trusted dirs. The
+# always-on channel is copilot/copilot-instructions.md (symlink to
+# ../agents/AGENTS.md), auto-loaded from COPILOT_HOME with no permission gate.
 export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="${HOME}/.config/dotfiles/agents"
 export PRESENTERM_CONFIG_FILE="${HOME}/.config/dotfiles/presenterm/config.yaml"
 export PI_CODING_AGENT_DIR="${HOME}/.config/dotfiles/pi"
