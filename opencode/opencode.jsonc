@@ -4,7 +4,7 @@
   "autoupdate": true,
   "share": "disabled",
   "instructions": [
-    "../agents/AGENTS.md"
+    "/Users/orbarila/.config/dotfiles/agents/AGENTS.md"
   ],
   "lsp": false,
   // "lsp": {

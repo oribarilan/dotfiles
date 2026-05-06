@@ -311,6 +311,6 @@ export COPILOT_HOME="${HOME}/.config/dotfiles/copilot"
 export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="${HOME}/.config/dotfiles/agents"
 ```
 
-- OpenCode loads `agents/AGENTS.md` via `instructions: ["../agents/AGENTS.md"]` in `opencode/opencode.jsonc`.
-- Copilot loads it via `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`, and finds shared skills via `skillDirectories` in `copilot/settings.json`.
+- OpenCode loads `agents/AGENTS.md` via `instructions: ["/Users/orbarila/.config/dotfiles/agents/AGENTS.md"]` in `opencode/opencode.jsonc` (absolute path; relative paths silently don't resolve).
+- Copilot loads it via `copilot/copilot-instructions.md` (a symlink to `../agents/AGENTS.md`), and finds shared skills via `skillDirectories` in `copilot/settings.json`. `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` is also exported for forward compatibility.
 - A symlink `~/.copilot -> ~/.config/dotfiles/copilot` ensures shells without the env var still work.
