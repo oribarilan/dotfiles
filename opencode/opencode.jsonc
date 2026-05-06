@@ -37,7 +37,8 @@
     }
   },
   "plugin": [
-    "oh-my-opencode-slim"
+    "oh-my-opencode-slim",
+    "97@git+https://github.com/oribarilan/97.git"
   ],
   "agent": {
     "explore": {

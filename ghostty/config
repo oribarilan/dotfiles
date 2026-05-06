@@ -23,3 +23,9 @@ custom-shader = "~/.config/dotfiles/ghostty/shaders/cursor_smear_fade.glsl"
 
 window-colorspace = display-p3
 alpha-blending = linear-corrected
+
+# Quick terminal (drop-down). Hyper+g = ctrl+opt+cmd+g
+keybind = global:ctrl+alt+cmd+g=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.2
