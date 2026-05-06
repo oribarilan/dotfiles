@@ -1,3 +1,11 @@
+# Skills
+
+- Search available skills before starting any task and invoke the relevant
+  ones. Skill instructions override default behavior.
+- When designing or writing any code, invoke the `using-97` skill to
+  establish the 97 trigger map; let the matched 97 sub-skills fire from
+  there.
+
 # Comments & docs
 
 - Write the minimum needed. Skip comments that restate code.
@@ -7,6 +15,6 @@
 # Prose polish
 
 - Before finalizing user-facing prose (PR descriptions, READMEs, design notes,
-  commit messages), apply the `humanizer` skill to strip AI-writing tells.
+  commit messages, changelog, etc.), apply the `humanizer` skill to strip AI-writing tells.
 - Apply humanizer principles inline when writing free-form prose, even if not
   explicitly invoked.
